@@ -1,0 +1,114 @@
+html {
+    scroll-behavior: smooth;
+  }
+  body{
+    font-size: 18px;
+    background-color: #ffffff;
+    color: #3a5260;
+    font-family: calibri, Arial;
+  }
+  
+  
+  code{
+    display: block;
+    text-align: left;
+    white-space: pre-line;
+    position: relative;
+    margin: 15px;
+    background-color: rgba(58, 83, 95, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+    color: #f2f2f2;
+    line-height: 1.5;
+  }
+  #main-doc {
+    margin-left: 390px;
+    text-align: justify;
+    margin-right: 15px;
+    line-height: 1.4;
+  }
+  .main-section{
+    margin-bottom: 50px;
+  }
+  #main-doc header{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: -10px;
+  }
+  section article{
+    margin: 15px;
+  }
+  
+  #navbar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 370px;
+    height: 100%;
+    background-color: rgba(193, 202, 190, 1);
+    color: #3a5260;
+    border-right: 4px solid;
+  }
+  #navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    padding: 7px 20px;
+  }
+  #navbar a:hover{
+    background-color: rgba(59, 83, 94, 1);
+    color: white;
+    border-radius: 15px;
+  }
+  #navbar ul{
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+  }
+  #navbar li{
+    text-align: center;
+    padding: 10px;
+  }
+  #navbar header{
+    text-align: center;
+    font-size: 28px;
+    color: #27373f;
+    font-weight: 600;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 4px solid #3a5260;
+  }
+  
+  
+  @media (max-width:1024px){
+    #navbar{
+      width: 300px;
+      border-right: none;
+    }
+    #main-doc {
+      margin-left: 320px;
+      position: relative;
+    }
+  }
+  @media (max-width:777px){
+    #navbar{
+      width: 100%;
+      height: 410px;
+      position: absolute;
+    }
+    #main-doc{
+      position: relative;
+      margin-left: 0;
+      margin-top: 425px;
+      margin-right: 0;
+    }
+  }
+  @media (max-width:359px){
+    #navbar{
+      height: 440px;
+    }
+    #main-doc{
+      margin-top: 455px;
+    }
+  }
