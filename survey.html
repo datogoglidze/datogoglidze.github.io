@@ -3,76 +3,69 @@
     <title>Survey Form</title>
 	<head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JX7V97DWHX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-JX7V97DWHX"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-  gtag('config', 'G-JX7V97DWHX');
-</script>
+		gtag('config', 'G-JX7V97DWHX');
+		</script>
+		<link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+		<link href="survey.css" rel="stylesheet">
     </head>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
-    <link href="survey.css" rel="stylesheet">
-<body>
-<main id="survey" class="container">
-	<h1 id="title">Schwifter's survey form</h1>
-	<p id="description">Every piece of information is very precious to us</p>
-	
-	<form id="survey-form">
-		
-		<div class="form-divs" id="name-div">
-			<label id="name-label">Name</label><br>
-			<input class="inp" type="text" id="name" placeholder="Enter your name" required>
-		</div>
-		
-		<div class="form-divs" id="email-div">
-			<label id="email">Email</label><br>
-			<input class="inp" type="email" id="email" placeholder="Enter your Email" required>
-		</div>
-		
-		<div class="form-divs" id="number-div">
-			<label id="number-label">Age</label><br>
-			<input class="inp" type="number" id="number" placeholder="Enter your age" min="18" max="123" required>
-		</div>
-		
-		<div class="form-divs" id="dropdown-div">
-			<label id="dropdown-label">Status</label><br>
-				<select class="inp" id="dropdown" required>
-					<option style="display:none"></option>
-  				<option value="married">Married</option>
-  				<option value="not-married">Not Married</option>
-  				<option value="divorced">Divorced</option>
-				</select>
-		</div>
-		
-		<div class="form-divs" id="radio-div">
-			<label id="radio-label">Gender</label><br>
-			<label style="font-size: 1.2rem;"> <input type="radio" name="gender" value="male"> Male</label><br>
-			<label style="font-size: 1.2rem;"> <input type="radio" name="gender" value="female"> Female</label><br>
-			<label style="font-size: 1.2rem;"> <input type="radio" name="gender" value="other"> Other</label>
-		</div>
-		
-		<div class="form-divs" id="check-div">
-			<label id="check-label">Favorite Subject(s)</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="finance"> Finance</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="law"> Law</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="comp"> Computer Science</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="psychology"> Psychology</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="hitory"> History</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="art"> Art</label><br>
-			<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="other"> Other</label>
-		</div>
-		
-		<div class="form-divs" id="textarea-div">
-			<label id="textarea-label">feel free to provide any additional feedback :)</label><br>
-			<textarea class="inp" form="usrform" placeholder="Enter text here..."></textarea>
-		</div>
-		<div class="form-divs" id="submit-div">
-			<button type="submit" id="submit" style="font-family: Calibri;">Submit</button>
-    </div>
-		
-	</form>
-</main>
-</body>
+
+	<body>
+		<main id="survey" class="container">
+			<h1 id="title">Schwifter's survey form</h1>
+			<p id="description">Every piece of information is very precious to us</p>
+
+			<form id="survey-form">
+				<div class="form-divs" id="name-div">
+					<label id="name-label">Name</label><br>
+					<input class="inp" type="text" id="name" placeholder="Enter your name" required>
+				</div>
+				<div class="form-divs" id="email-div">
+					<label id="email">Email</label><br>
+					<input class="inp" type="email" id="email" placeholder="Enter your Email" required>
+				</div>
+				<div class="form-divs" id="number-div">
+					<label id="number-label">Age</label><br>
+					<input class="inp" type="number" id="number" placeholder="Enter your age" min="18" max="123" required>
+				</div>
+				<div class="form-divs" id="dropdown-div">
+					<label id="dropdown-label">Status</label><br>
+						<select class="inp" id="dropdown" required>
+							<option style="display:none"></option>
+							<option value="married">Married</option>
+							<option value="not-married">Not Married</option>
+							<option value="divorced">Divorced</option>
+						</select>
+				</div>
+				<div class="form-divs" id="radio-div">
+					<label id="radio-label">Gender</label><br>
+					<label style="font-size: 1.2rem;"> <input type="radio" name="gender" value="male"> Male</label><br>
+					<label style="font-size: 1.2rem;"> <input type="radio" name="gender" value="female"> Female</label><br>
+					<label style="font-size: 1.2rem;"> <input type="radio" name="gender" value="other"> Other</label>
+				</div>
+				<div class="form-divs" id="check-div">
+					<label id="check-label">Favorite Subject(s)</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="finance"> Finance</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="law"> Law</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="comp"> Computer Science</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="psychology"> Psychology</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="hitory"> History</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="art"> Art</label><br>
+					<label style="font-size: 1.2rem;"> <input type="checkbox" name="subject" value="other"> Other</label>
+				</div>
+				<div class="form-divs" id="textarea-div">
+					<label id="textarea-label">feel free to provide any additional feedback :)</label><br>
+					<textarea class="inp" form="usrform" placeholder="Enter text here..."></textarea>
+				</div>
+				<div class="form-divs" id="submit-div">
+					<button type="submit" id="submit" style="font-family: Calibri;">Submit</button>
+				</div>
+			</form>
+		</main>
+	</body>
 </html>
