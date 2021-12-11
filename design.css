@@ -10,22 +10,10 @@ html {
   }
   #qrcode{
     width: 550px;
+    position: fixed;
+    left: 50%;
   }
-  @media(max-width: 500px){
-    #qrcode{
-      width: 400px;
-    }
-  }
-  @media(max-width: 420px){
-    #qrcode{
-      width: 300px;
-    }
-  }
-  @media(max-width: 320px){
-    #qrcode{
-      width: 200px;
-    }
-  }
+  
   
   #navbar{
     position: fixed;
