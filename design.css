@@ -8,19 +8,6 @@ html {
   * {
     font-family: Arial;
   }
-  #research_link{
-    text-align: center;
-    margin: 25px auto 0 auto;
-  }
-  #qrcode{
-    width: 500px;
-    position: fixed;
-    left: 50%;
-    margin-left: -250px;
-    margin-top: 100px;
-  }
-  
-  
   #navbar{
     position: fixed;
     display: flex;
