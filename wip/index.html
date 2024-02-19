@@ -26,6 +26,27 @@
                 background-position: center;
                 background-blend-mode: multiply;
             }
+
+            .navbar .navbar-nav .nav-item {
+                position: relative;
+            }
+
+            .navbar .navbar-nav .nav-item::after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                content: "";
+                background-color: rgba(255, 255, 255, 0.705);
+                width: 0%;
+                height: 2px;
+                transition: all 0.5s;
+            }
+
+            .navbar .navbar-nav .nav-item:hover::after {
+                width: 85%;
+            }
         </style>
     </head>
 
@@ -38,16 +59,20 @@
                 >
                     <ul class="navbar-nav">
                         <li class="nav-item me-sm-5 fs-5 fw-semibold">
-                            <a href="#" class="nav-link text-white">Home</a>
+                            <a
+                                href="/wip/index.html"
+                                class="nav-link text-white"
+                                >HOME</a
+                            >
                         </li>
                         <li class="nav-item me-sm-5 fs-5 fw-semibold">
-                            <a href="#" class="nav-link text-white">Learning</a>
+                            <a href="#" class="nav-link text-white">LEARNING</a>
                         </li>
                         <li class="nav-item me-sm-5 fs-5 fw-semibold">
-                            <a href="#" class="nav-link text-white">Gaming</a>
+                            <a href="#" class="nav-link text-white">GAMING</a>
                         </li>
                         <li class="nav-item fs-5 fw-semibold">
-                            <a href="#" class="nav-link text-white">Memes</a>
+                            <a href="#" class="nav-link text-white">MEMES</a>
                         </li>
                     </ul>
                 </nav>
