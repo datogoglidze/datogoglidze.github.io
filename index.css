@@ -1,0 +1,28 @@
+.main-page {
+    background-image: url("assets/index-background.jpg");
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+
+.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.705);
+    width: 0%;
+    height: 2px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+    width: 85%;
+}
