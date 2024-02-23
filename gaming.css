@@ -34,7 +34,19 @@ body {
     left: 0;
 }
 
-#genre-button {
+#mp-genre-button {
+    background-color: #d4ff9d;
+}
+
+#fps-genre-button {
+    background-color: #d4ff9d;
+}
+
+#strategy-genre-button {
+    background-color: #d4ff9d;
+}
+
+#rpg-genre-button {
     background-color: #d4ff9d;
 }
 
