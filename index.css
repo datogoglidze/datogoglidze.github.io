@@ -1,9 +1,8 @@
 .main-page {
     background-image: url("assets/index-background.jpg");
-    background-size: auto;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-position: center;
-    background-blend-mode: multiply;
+    background-size: cover;
 }
 
 .navbar .navbar-nav .nav-item {
