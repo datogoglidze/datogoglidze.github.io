@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import { Home, GraduationCap, Gamepad2, Laugh } from "lucide-react";
 
 import {
@@ -13,27 +14,29 @@ import {
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/home",
     icon: Home,
   },
   {
     title: "Learning",
-    url: "#",
+    url: "/learning",
     icon: GraduationCap,
   },
   {
     title: "Gaming",
-    url: "#",
+    url: "/gaming",
     icon: Gamepad2,
   },
   {
     title: "Memes",
-    url: "#",
+    url: "/memes",
     icon: Laugh,
   },
 ];
 
 export function AppSidebar() {
+  const location = useLocation();
+
   return (
     <Sidebar variant="floating">
       <SidebarHeader>Side-Header</SidebarHeader>
@@ -41,11 +44,14 @@ export function AppSidebar() {
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
-                <a href={item.url}>
+              <SidebarMenuButton
+                asChild
+                isActive={location.pathname === item.url}
+              >
+                <Link to={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
