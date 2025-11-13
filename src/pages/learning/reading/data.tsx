@@ -4,15 +4,19 @@ export default function getReadingsData(): Reading[] {
   return [
     {
       id: 1,
-      name: "SQL style guide",
-      link: "SQL Style Guide by Simon Holywell",
-      languages: "SQL",
+      title: "SQL Style Guide",
+      author: "Simon Holywel",
+      url: "https://www.sqlstyle.guide/",
+      urlSource: "sqlstyle",
+      languages: ["SQL"],
     },
     {
       id: 2,
-      name: "Design patterns",
-      link: "Refactoring Guru",
-      languages: "",
+      title: "Refactoring Guru",
+      author: "",
+      url: "https://refactoring.guru/design-patterns",
+      urlSource: "Refactoring Guru",
+      languages: [],
     },
   ];
 }

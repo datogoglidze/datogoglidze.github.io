@@ -7,8 +7,8 @@ import { IconCircleCheckFilled } from "@tabler/icons-react";
 export type Course = {
   id: number;
   name: string;
-  link: string;
-  languages: string;
+  url: string;
+  languages: string[];
   hasCertificate: boolean;
 };
 
@@ -20,14 +20,33 @@ export const columns: ColumnDef<Course>[] = [
   {
     accessorKey: "name",
     header: "Name",
-  },
-  {
-    accessorKey: "link",
-    header: "Link",
+    cell: ({ row }) => {
+      return (
+        <a
+          href={row.original.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
+          {row.original.name}
+        </a>
+      );
+    },
   },
   {
     accessorKey: "languages",
     header: "Languages",
+    cell: ({ row }) => {
+      return (
+        <div className="flex flex-wrap gap-1">
+          {row.original.languages.map((language: string, index: number) => (
+            <Badge key={index} variant="outline" className="px-1.5">
+              {language}
+            </Badge>
+          ))}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "hasCertificate",

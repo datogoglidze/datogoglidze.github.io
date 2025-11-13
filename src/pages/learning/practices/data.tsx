@@ -4,15 +4,15 @@ export default function getPracticesData(): Practice[] {
   return [
     {
       id: 1,
-      name: "Practice with coding problems",
-      link: "Code Wars",
-      languages: "",
+      name: "Code Wars",
+      url: "https://www.codewars.com/dashboard",
+      languages: ["Python", "JavaScript"],
     },
     {
       id: 2,
-      name: "SQL problem (Murder Mystery)",
-      link: "Knight Lab's SQL Murder Mystery",
-      languages: "SQL",
+      name: "Knight Lab's SQL Murder Mystery",
+      url: "https://mystery.knightlab.com/",
+      languages: ["SQLite"],
     },
   ];
 }
