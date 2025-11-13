@@ -5,8 +5,6 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-  type ColumnFiltersState,
-  getFilteredRowModel,
 } from "@tanstack/react-table";
 
 import {
@@ -17,8 +15,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Input } from "@/components/ui/input";
-import * as React from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -29,35 +25,15 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  );
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    onColumnFiltersChange: setColumnFilters,
-    getFilteredRowModel: getFilteredRowModel(),
-    state: {
-      columnFilters,
-    },
   });
 
   return (
     <div>
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter language"
-          value={
-            (table.getColumn("languages")?.getFilterValue() as string) ?? ""
-          }
-          onChange={(event) =>
-            table.getColumn("languages")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-      </div>
       <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader>
