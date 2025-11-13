@@ -1,4 +1,4 @@
-import { Home, Inbox } from "lucide-react";
+import { Home, GraduationCap, Gamepad2, Laugh } from "lucide-react";
 
 import {
   Sidebar,
@@ -12,14 +12,24 @@ import {
 
 const items = [
   {
-    title: "First",
+    title: "Home",
     url: "#",
     icon: Home,
   },
   {
-    title: "Second",
+    title: "Learning",
     url: "#",
-    icon: Inbox,
+    icon: GraduationCap,
+  },
+  {
+    title: "Gaming",
+    url: "#",
+    icon: Gamepad2,
+  },
+  {
+    title: "Memes",
+    url: "#",
+    icon: Laugh,
   },
 ];
 
