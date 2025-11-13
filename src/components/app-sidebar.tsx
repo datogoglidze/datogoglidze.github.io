@@ -25,7 +25,7 @@ const items = [
 
 export function AppSidebar() {
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar variant="floating">
       <SidebarHeader>Side-Header</SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
