@@ -40,8 +40,12 @@ export function DataTable<TData, TValue>({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
+                  const isIdColumn = header.column.id === "id";
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className={isIdColumn ? "w-[60px]" : ""}
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -61,14 +65,29 @@ export function DataTable<TData, TValue>({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell) => {
+                    const isIdColumn = cell.column.id === "id";
+                    return (
+                      <TableCell
+                        key={cell.id}
+                        className={isIdColumn ? "w-[60px]" : ""}
+                        style={
+                          isIdColumn
+                            ? {
+                                width: "60px",
+                                minWidth: "60px",
+                                maxWidth: "60px",
+                              }
+                            : undefined
+                        }
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
             ) : (

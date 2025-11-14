@@ -16,6 +16,7 @@ export const columns: ColumnDef<Course>[] = [
   {
     accessorKey: "id",
     header: "#",
+    size: 60,
   },
   {
     accessorKey: "name",
@@ -34,6 +35,19 @@ export const columns: ColumnDef<Course>[] = [
     },
   },
   {
+    accessorKey: "hasCertificate",
+    header: "With Certificate",
+    cell: ({ row }) => (
+      <Badge variant="outline" className="px-1.5">
+        {row.original.hasCertificate ? (
+          <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
+        ) : (
+          <IconCircleCheckFilled className="fill-red-500 dark:fill-red-400" />
+        )}
+      </Badge>
+    ),
+  },
+  {
     accessorKey: "languages",
     header: "Languages",
     cell: ({ row }) => {
@@ -47,18 +61,5 @@ export const columns: ColumnDef<Course>[] = [
         </div>
       );
     },
-  },
-  {
-    accessorKey: "hasCertificate",
-    header: "With Certificate",
-    cell: ({ row }) => (
-      <Badge variant="outline" className="px-1.5">
-        {row.original.hasCertificate ? (
-          <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
-        ) : (
-          <IconCircleCheckFilled className="fill-red-500 dark:fill-red-400" />
-        )}
-      </Badge>
-    ),
   },
 ];

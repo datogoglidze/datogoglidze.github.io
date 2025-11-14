@@ -16,6 +16,7 @@ export const columns: ColumnDef<Reading>[] = [
   {
     accessorKey: "id",
     header: "#",
+    size: 60,
   },
   {
     accessorKey: "title",
@@ -27,7 +28,7 @@ export const columns: ColumnDef<Reading>[] = [
   },
   {
     accessorKey: "url",
-    header: "URL",
+    header: "Source",
     cell: ({ row }) => {
       return (
         <a
