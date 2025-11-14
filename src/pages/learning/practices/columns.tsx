@@ -2,6 +2,7 @@
 
 import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge.tsx";
+import { IconExternalLink } from "@tabler/icons-react";
 
 export type Practice = {
   id: number;
@@ -24,9 +25,10 @@ export const columns: ColumnDef<Practice>[] = [
           href={row.original.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary hover:underline"
+          className="text-primary hover:underline inline-flex items-center gap-1.5"
         >
           {row.original.name}
+          <IconExternalLink className="w-3.5 h-3.5 opacity-70" />
         </a>
       );
     },
