@@ -13,13 +13,7 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <BrowserRouter>
-        <SidebarProvider
-          style={
-            {
-              "--sidebar-width": "19rem",
-            } as React.CSSProperties
-          }
-        >
+        <SidebarProvider>
           <AppSidebar />
           <SidebarInset>
             <SiteHeader />
