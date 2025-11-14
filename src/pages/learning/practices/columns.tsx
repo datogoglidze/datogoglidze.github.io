@@ -14,7 +14,6 @@ export const columns: ColumnDef<Practice>[] = [
   {
     accessorKey: "id",
     header: "#",
-    size: 60,
   },
   {
     accessorKey: "name",

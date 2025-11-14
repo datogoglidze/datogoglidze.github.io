@@ -16,7 +16,6 @@ export const columns: ColumnDef<Reading>[] = [
   {
     accessorKey: "id",
     header: "#",
-    size: 60,
   },
   {
     accessorKey: "title",

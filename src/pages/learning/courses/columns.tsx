@@ -16,7 +16,6 @@ export const columns: ColumnDef<Course>[] = [
   {
     accessorKey: "id",
     header: "#",
-    size: 60,
   },
   {
     accessorKey: "name",
