@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   Home,
   GraduationCap,
-  Gamepad2,
+  Newspaper,
   Laugh,
   Twitter,
   Linkedin,
@@ -34,9 +34,9 @@ const items = [
     icon: GraduationCap,
   },
   {
-    title: "Gaming",
-    url: "/gaming",
-    icon: Gamepad2,
+    title: "Articles",
+    url: "/articles",
+    icon: Newspaper,
   },
   {
     title: "Memes",

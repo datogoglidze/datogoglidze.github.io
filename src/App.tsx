@@ -5,7 +5,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import HomePage from "@/pages/home/page";
 import LearningPage from "@/pages/learning/page";
-import GamingPage from "@/pages/gaming/page";
+import ArticlesPage from "@/pages/articles/page";
 import MemesPage from "@/pages/memes/page";
 import { SiteHeader } from "@/components/site-header.tsx";
 
@@ -21,7 +21,7 @@ function App() {
               <Route path="/" element={<Navigate to="/home" replace />} />
               <Route path="/home" element={<HomePage />} />
               <Route path="/learning" element={<LearningPage />} />
-              <Route path="/gaming" element={<GamingPage />} />
+              <Route path="/articles" element={<ArticlesPage />} />
               <Route path="/memes" element={<MemesPage />} />
             </Routes>
           </SidebarInset>
