@@ -40,7 +40,7 @@ const SKELETON_COUNT = 3;
 
 function LoadingSkeleton() {
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
       {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
         <Card key={i}>
           <CardHeader className="mb-1">
@@ -165,7 +165,7 @@ export default function ArticlesPage() {
             {feed.items.length === 0 ? (
               <p className="text-muted-foreground">No articles found.</p>
             ) : (
-              <div className="grid auto-rows-min gap-4 md:grid-cols-2 xl:grid-cols-4">
+              <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {feed.items.map((item, index) => (
                   <ArticleCard
                     key={item.guid || item.link || index}
