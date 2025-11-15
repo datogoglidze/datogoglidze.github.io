@@ -7,6 +7,7 @@ import {
   Twitter,
   Linkedin,
   Github,
+  Mail,
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -62,6 +63,12 @@ const itemsSecondary = [
     title: "datogoglidze",
     url: "https://github.com/datogoglidze",
     icon: Github,
+  },
+  {
+    id: 4,
+    title: "d.goglidze22@gmail.com",
+    url: "mailto:d.goglidze22@gmail.com",
+    icon: Mail,
   },
 ];
 
