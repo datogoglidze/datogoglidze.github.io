@@ -1,3 +1,9 @@
+import { TechnicalDocumentationCard } from "./projectCards/technicalDocumentation";
+import { TributeCard } from "./projectCards/tribute";
+import { ProductLandingCard } from "./projectCards/productLanding";
+import { SurveyCard } from "./projectCards/survey";
+import { BloknotCard } from "./projectCards/bloknot";
+
 export default function HomePage() {
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
@@ -10,12 +16,23 @@ export default function HomePage() {
         <p className="font-medium mt-4">I'm Schwifter</p>
         <p className="font-medium mt-4">Software Engineer</p>
       </div>
+
+      <div className="bg-muted/50 flex-1 rounded-xl p-6">
+        <h1 className="text-2xl font-medium mb-4">Projects</h1>
+        <div className="grid auto-rows-min gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <TechnicalDocumentationCard />
+          <TributeCard />
+          <ProductLandingCard />
+          <SurveyCard />
+          <BloknotCard />
+        </div>
+      </div>
+
       <div className="grid auto-rows-min gap-4 md:grid-cols-3">
         <div className="bg-muted/50 aspect-video rounded-xl" />
         <div className="bg-muted/50 aspect-video rounded-xl" />
         <div className="bg-muted/50 aspect-video rounded-xl" />
       </div>
-      <div className="bg-muted/50 flex-1 rounded-xl p-6"></div>
     </div>
   );
 }
