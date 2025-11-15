@@ -9,6 +9,8 @@ import {
   Github,
 } from "lucide-react";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import {
   Sidebar,
   SidebarContent,
@@ -68,7 +70,15 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="floating">
-      <SidebarHeader>Side-Header</SidebarHeader>
+      <SidebarHeader>
+        <div className="flex items-center gap-2 font-medium text-sm">
+          <Avatar>
+            <AvatarImage src="/alien-300-300.jpg" alt="@shadcn" />
+            <AvatarFallback>SW</AvatarFallback>
+          </Avatar>
+          Schwifter
+        </div>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
           {items.map((item) => (
