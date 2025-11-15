@@ -6,7 +6,7 @@ import { ModeToggle } from "@/components/mode-toggle.tsx";
 const routeTitles: Record<string, string> = {
   "/home": "Home",
   "/learning": "Learning",
-  "/gaming": "Gaming",
+  "/articles": "Articles",
   "/memes": "Memes",
 };
 
