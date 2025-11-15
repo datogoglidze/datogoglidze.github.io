@@ -14,9 +14,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  NativeSelect,
-  NativeSelectOption,
-} from "@/components/ui/native-select";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const RSS_FEED_PROVIDERS: Record<string, RSSFeedProvider> = {
   ign: {
@@ -144,16 +147,18 @@ export default function ArticlesPage() {
       <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)]md:min-h-min rounded-xl p-6">
         <div className="flex gap-3 items-center mb-4">
           <h1 className="text-md font-bold">Provider</h1>
-          <NativeSelect
-            value={selectedProvider}
-            onChange={(e) => handleProviderChange(e.target.value)}
-          >
-            {Object.entries(RSS_FEED_PROVIDERS).map(([id, provider]) => (
-              <NativeSelectOption key={id} value={id}>
-                {provider.name}
-              </NativeSelectOption>
-            ))}
-          </NativeSelect>
+          <Select value={selectedProvider} onValueChange={handleProviderChange}>
+            <SelectTrigger className="w-[130px]">
+              <SelectValue placeholder="Select a provider" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.entries(RSS_FEED_PROVIDERS).map(([id, provider]) => (
+                <SelectItem key={id} value={id}>
+                  {provider.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {loading && <LoadingSkeleton />}
