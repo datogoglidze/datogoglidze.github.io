@@ -2,7 +2,8 @@ import { TechnicalDocumentationCard } from "./projectCards/technicalDocumentatio
 import { TributeCard } from "./projectCards/tribute";
 import { ProductLandingCard } from "./projectCards/productLanding";
 import { SurveyCard } from "./projectCards/survey";
-import { BloknotCard } from "./projectCards/bloknot";
+import { BloknotFrontCard } from "./projectCards/bloknotFront.tsx";
+import { BloknotBackCard } from "@/pages/home/projectCards/bloknotBack.tsx";
 
 export default function HomePage() {
   return (
@@ -24,7 +25,8 @@ export default function HomePage() {
           <TributeCard />
           <ProductLandingCard />
           <SurveyCard />
-          <BloknotCard />
+          <BloknotFrontCard />
+          <BloknotBackCard />
         </div>
       </div>
     </div>
