@@ -6,7 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { IconExternalLink } from "@tabler/icons-react";
+import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button.tsx";
 
 export function ProductLandingCard() {
   return (
@@ -23,15 +24,17 @@ export function ProductLandingCard() {
         />
       </CardContent>
       <CardFooter>
-        <a
-          href="https://codepen.io/datogoglidze/pen/zYNXwjY"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary hover:underline inline-flex items-center gap-1.5"
-        >
-          CodePen
-          <IconExternalLink className="w-3.5 h-3.5 opacity-70" />
-        </a>
+        <Button variant="outline" size="sm" asChild className="w-full">
+          <a
+            href="https://codepen.io/datogoglidze/pen/zYNXwjY"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2"
+          >
+            CodePen
+            <ExternalLink className="h-3 w-3" />
+          </a>
+        </Button>
       </CardFooter>
     </Card>
   );

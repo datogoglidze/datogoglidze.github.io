@@ -9,18 +9,16 @@ import {
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
 
-export function TechnicalDocumentationCard() {
+export function BloknotBackCard() {
   return (
     <Card className="bg-muted/50">
       <CardHeader>
-        <CardTitle>Technical Documentation Page</CardTitle>
-        <CardDescription>
-          Briefly describes basic financial analysis formulas
-        </CardDescription>
+        <CardTitle>Bloknot: Back</CardTitle>
+        <CardDescription>Manage basic notes</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-1 items-end">
         <img
-          src="/main-page/technicalDocumentation.jpg"
+          src="/main-page/bloknot.jpg"
           className="rounded-md"
           alt="library in computer"
         />
@@ -28,12 +26,12 @@ export function TechnicalDocumentationCard() {
       <CardFooter>
         <Button variant="outline" size="sm" asChild className="w-full">
           <a
-            href="https://codepen.io/datogoglidze/pen/yLMBgKR"
+            href="https://github.com/datogoglidze/bloknot.git"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2"
           >
-            CodePen
+            GitHub
             <ExternalLink className="h-3 w-3" />
           </a>
         </Button>

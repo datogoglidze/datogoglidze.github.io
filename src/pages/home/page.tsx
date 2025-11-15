@@ -2,7 +2,8 @@ import { TechnicalDocumentationCard } from "./projectCards/technicalDocumentatio
 import { TributeCard } from "./projectCards/tribute";
 import { ProductLandingCard } from "./projectCards/productLanding";
 import { SurveyCard } from "./projectCards/survey";
-import { BloknotCard } from "./projectCards/bloknot";
+import { BloknotFrontCard } from "./projectCards/bloknotFront.tsx";
+import { BloknotBackCard } from "@/pages/home/projectCards/bloknotBack.tsx";
 
 export default function HomePage() {
   return (
@@ -19,12 +20,13 @@ export default function HomePage() {
 
       <div className="bg-muted/50 flex-1 rounded-xl p-6">
         <h1 className="text-2xl font-medium mb-4">Projects</h1>
-        <div className="grid auto-rows-min gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           <TechnicalDocumentationCard />
           <TributeCard />
           <ProductLandingCard />
           <SurveyCard />
-          <BloknotCard />
+          <BloknotFrontCard />
+          <BloknotBackCard />
         </div>
       </div>
     </div>

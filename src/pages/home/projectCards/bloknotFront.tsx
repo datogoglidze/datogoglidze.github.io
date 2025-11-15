@@ -6,13 +6,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { IconExternalLink } from "@tabler/icons-react";
+import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button.tsx";
 
-export function BloknotCard() {
+export function BloknotFrontCard() {
   return (
     <Card className="bg-muted/50">
       <CardHeader>
-        <CardTitle>Bloknot</CardTitle>
+        <CardTitle>Bloknot: Front</CardTitle>
         <CardDescription>Manage basic notes</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-1 items-end">
@@ -23,26 +24,17 @@ export function BloknotCard() {
         />
       </CardContent>
       <CardFooter>
-        <div className="flex gap-2">
-          <a
-            href="https://github.com/datogoglidze/bloknot.git"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline inline-flex items-center gap-1.5"
-          >
-            Backend
-            <IconExternalLink className="w-3.5 h-3.5 opacity-70" />
-          </a>
+        <Button variant="outline" size="sm" asChild className="w-full">
           <a
             href="https://github.com/datogoglidze/bloknot-front.git"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline inline-flex items-center gap-1.5"
+            className="flex items-center justify-center gap-2"
           >
-            Frontend
-            <IconExternalLink className="w-3.5 h-3.5 opacity-70" />
+            GitHub
+            <ExternalLink className="h-3 w-3" />
           </a>
-        </div>
+        </Button>
       </CardFooter>
     </Card>
   );
