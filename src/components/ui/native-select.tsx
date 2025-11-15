@@ -29,7 +29,9 @@ function NativeSelect({ className, ...props }: React.ComponentProps<"select">) {
 }
 
 function NativeSelectOption({ ...props }: React.ComponentProps<"option">) {
-  return <option data-slot="native-select-option" {...props} />;
+  return (
+    <option className="bg-accent" data-slot="native-select-option" {...props} />
+  );
 }
 
 function NativeSelectOptGroup({
