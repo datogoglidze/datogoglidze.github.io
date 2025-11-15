@@ -32,6 +32,7 @@ const RSS_FEED_PROVIDERS: Record<string, RSSFeedProvider> = {
     url: "https://www.techradar.com/feeds.xml",
   },
 };
+const DEFAULT_PROVIDER_ID = "ign";
 
 type FeedProviderId = keyof typeof RSS_FEED_PROVIDERS;
 
@@ -120,13 +121,20 @@ function ArticleCard({ item }: { item: RSSFeedItem }) {
 }
 
 export default function ArticlesPage() {
-  const [selectedProvider, setSelectedProvider] =
-    useState<FeedProviderId>("ign");
+  const [selectedProvider, setSelectedProvider] = useState<FeedProviderId>(
+    () => {
+      const stored = localStorage.getItem("ArticlesSelectedProvider");
+      return stored && stored in RSS_FEED_PROVIDERS
+        ? (stored as FeedProviderId)
+        : DEFAULT_PROVIDER_ID;
+    },
+  );
   const feedUrl = RSS_FEED_PROVIDERS[selectedProvider].url;
   const { feed, loading, error } = useRSSFeed(feedUrl);
 
   const handleProviderChange = (value: string) => {
     setSelectedProvider(value as FeedProviderId);
+    localStorage.setItem("ArticlesSelectedProvider", value);
   };
 
   const hasArticles = feed && feed.items.length > 0;
