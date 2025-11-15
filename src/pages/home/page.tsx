@@ -20,7 +20,7 @@ export default function HomePage() {
 
       <div className="bg-muted/50 flex-1 rounded-xl p-6">
         <h1 className="text-2xl font-medium mb-4">Projects</h1>
-        <div className="grid auto-rows-min gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
           <TechnicalDocumentationCard />
           <TributeCard />
           <ProductLandingCard />
