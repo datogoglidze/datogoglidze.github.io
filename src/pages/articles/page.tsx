@@ -21,10 +21,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 const DEFAULT_PROVIDER_ID = "ignArticles";
-
 type FeedProviderId = keyof typeof RSS_FEED_PROVIDERS;
-
 const SKELETON_COUNT = 3;
 
 function LoadingSkeleton() {
