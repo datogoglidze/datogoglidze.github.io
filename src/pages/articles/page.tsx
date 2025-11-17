@@ -22,20 +22,48 @@ import {
 } from "@/components/ui/select";
 
 const RSS_FEED_PROVIDERS: Record<string, RSSFeedProvider> = {
-  ign: {
-    name: "IGN",
+  ignArticles: {
+    name: "IGN Articles",
     url: "https://feeds.feedburner.com/ign/all",
   },
-  pcgamer: {
-    name: "PC Gamer",
+  ignNews: {
+    name: "IGN News",
+    url: "https://feeds.feedburner.com/ign/news",
+  },
+  pcgamerArticles: {
+    name: "PC Gamer Articles",
     url: "https://www.pcgamer.com/rss/",
   },
-  techradar: {
-    name: "TechRadar",
+  pcgamerNews: {
+    name: "PC Gamer News",
+    url: "https://www.pcgamer.com/feeds/articletype/news/",
+  },
+  techradarArticles: {
+    name: "TechRadar Articles",
     url: "https://www.techradar.com/feeds.xml",
   },
+  techradarNews: {
+    name: "TechRadar News",
+    url: "https://www.techradar.com/feeds/articletype/news",
+  },
+  gamesportArticles: {
+    name: "GameSpot Articles",
+    url: "https://www.gamespot.com/feeds/mashup",
+  },
+  polygonArticles: {
+    name: "Polygon Articles",
+    url: "https://www.polygon.com/rss/index.xml",
+  },
+  polygonNews: {
+    name: "Polygon News",
+    url: "https://www.polygon.com/rss/news/index.xml",
+  },
+  nvidiaBlog: {
+    name: "Nvidia Blog",
+    url: "https://blogs.nvidia.com/feed/",
+  },
 };
-const DEFAULT_PROVIDER_ID = "ign";
+const DEFAULT_PROVIDER_ID = "ignArticles";
 
 type FeedProviderId = keyof typeof RSS_FEED_PROVIDERS;
 
@@ -148,7 +176,7 @@ export default function ArticlesPage() {
         <div className="flex gap-3 items-center mb-4">
           <h1 className="text-md font-bold">Provider</h1>
           <Select value={selectedProvider} onValueChange={handleProviderChange}>
-            <SelectTrigger className="w-[130px]">
+            <SelectTrigger className="w-[170px]">
               <SelectValue placeholder="Select a provider" />
             </SelectTrigger>
             <SelectContent>
