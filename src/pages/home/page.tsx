@@ -1,9 +1,5 @@
-import { TechnicalDocumentationCard } from "./projectCards/technicalDocumentation";
-import { TributeCard } from "./projectCards/tribute";
-import { ProductLandingCard } from "./projectCards/productLanding";
-import { SurveyCard } from "./projectCards/survey";
-import { BloknotFrontCard } from "./projectCards/bloknotFront.tsx";
-import { BloknotBackCard } from "@/pages/home/projectCards/bloknotBack.tsx";
+import { ProjectCard } from "./projectCards/ProjectCard";
+import { PROJECTS } from "./projectCards/data";
 
 export default function HomePage() {
   return (
@@ -21,12 +17,9 @@ export default function HomePage() {
       <div className="bg-muted/50 flex-1 rounded-xl p-6">
         <h1 className="text-2xl font-medium mb-4">Projects</h1>
         <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-          <TechnicalDocumentationCard />
-          <TributeCard />
-          <ProductLandingCard />
-          <SurveyCard />
-          <BloknotFrontCard />
-          <BloknotBackCard />
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </div>
