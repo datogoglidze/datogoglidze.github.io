@@ -1,4 +1,4 @@
-import { DataTable } from "@/pages/learning/data-table";
+import { DataTable } from "@/pages/learning/DataTable.tsx";
 import { columns as courseColumns } from "@/pages/learning/courses/columns.tsx";
 import { columns as readingColumns } from "@/pages/learning/reading/columns.tsx";
 import { columns as practiceColumns } from "@/pages/learning/practices/columns.tsx";
