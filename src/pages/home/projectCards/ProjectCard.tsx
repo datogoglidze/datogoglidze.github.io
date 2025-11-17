@@ -8,32 +8,35 @@ import {
 } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
+import type { Project } from "./data";
 
-export function TechnicalDocumentationCard() {
+interface ProjectCardProps {
+  project: Project;
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card className="bg-muted/50">
       <CardHeader>
-        <CardTitle>Technical Documentation Page</CardTitle>
-        <CardDescription>
-          Briefly describes basic financial analysis formulas
-        </CardDescription>
+        <CardTitle>{project.title}</CardTitle>
+        <CardDescription>{project.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-1 items-end">
         <img
-          src="/main-page/technicalDocumentation.jpg"
+          src={project.imageSrc}
           className="rounded-md"
-          alt="library in computer"
+          alt={project.imageAlt}
         />
       </CardContent>
       <CardFooter>
         <Button variant="outline" size="sm" asChild className="w-full">
           <a
-            href="https://codepen.io/datogoglidze/pen/yLMBgKR"
+            href={project.linkUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2"
           >
-            CodePen
+            {project.linkText}
             <ExternalLink className="h-3 w-3" />
           </a>
         </Button>
