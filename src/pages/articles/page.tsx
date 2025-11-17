@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem, RSSFeedProvider } from "./types";
+import type { RSSFeedItem } from "./types";
+import { RSS_FEED_PROVIDERS } from "./data";
 import {
   Card,
   CardHeader,
@@ -21,24 +22,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const RSS_FEED_PROVIDERS: Record<string, RSSFeedProvider> = {
-  ign: {
-    name: "IGN",
-    url: "https://feeds.feedburner.com/ign/all",
-  },
-  pcgamer: {
-    name: "PC Gamer",
-    url: "https://www.pcgamer.com/rss/",
-  },
-  techradar: {
-    name: "TechRadar",
-    url: "https://www.techradar.com/feeds.xml",
-  },
-};
-const DEFAULT_PROVIDER_ID = "ign";
-
+const DEFAULT_PROVIDER_ID = "ignArticles";
 type FeedProviderId = keyof typeof RSS_FEED_PROVIDERS;
-
 const SKELETON_COUNT = 3;
 
 function LoadingSkeleton() {
@@ -148,7 +133,7 @@ export default function ArticlesPage() {
         <div className="flex gap-3 items-center mb-4">
           <h1 className="text-md font-bold">Provider</h1>
           <Select value={selectedProvider} onValueChange={handleProviderChange}>
-            <SelectTrigger className="w-[130px]">
+            <SelectTrigger className="w-[170px]">
               <SelectValue placeholder="Select a provider" />
             </SelectTrigger>
             <SelectContent>
