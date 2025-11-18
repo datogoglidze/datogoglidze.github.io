@@ -17,6 +17,7 @@ import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
 
 export default function ArticlesPage() {
   const rssProviders = getRssProviders();
+
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
     () => {
       const stored = localStorage.getItem("ArticlesSelectedProvider");
