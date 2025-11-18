@@ -2,10 +2,11 @@
 
 import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge.tsx";
+import { IconCircleCheckFilled } from "@tabler/icons-react";
 import { ExternalLink } from "lucide-react";
-import type { Practice } from "@/data/practice.ts";
+import type { Course } from "@/data/course.ts";
 
-export const columns: ColumnDef<Practice>[] = [
+const courses: ColumnDef<Course>[] = [
   {
     accessorKey: "id",
     header: "#",
@@ -28,6 +29,19 @@ export const columns: ColumnDef<Practice>[] = [
     },
   },
   {
+    accessorKey: "hasCertificate",
+    header: "With Certificate",
+    cell: ({ row }) => (
+      <Badge variant="outline" className="px-1.5">
+        {row.original.hasCertificate ? (
+          <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
+        ) : (
+          <IconCircleCheckFilled className="fill-red-500 dark:fill-red-400" />
+        )}
+      </Badge>
+    ),
+  },
+  {
     accessorKey: "languages",
     header: "Languages",
     cell: ({ row }) => {
@@ -43,3 +57,5 @@ export const columns: ColumnDef<Practice>[] = [
     },
   },
 ];
+
+export default courses;

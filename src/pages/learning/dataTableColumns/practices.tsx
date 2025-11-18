@@ -3,24 +3,16 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge.tsx";
 import { ExternalLink } from "lucide-react";
-import type { Reading } from "@/data/reading.ts";
+import type { Practice } from "@/data/practice.ts";
 
-export const columns: ColumnDef<Reading>[] = [
+const practices: ColumnDef<Practice>[] = [
   {
     accessorKey: "id",
     header: "#",
   },
   {
-    accessorKey: "title",
-    header: "Title",
-  },
-  {
-    accessorKey: "author",
-    header: "Author",
-  },
-  {
-    accessorKey: "url",
-    header: "Source",
+    accessorKey: "name",
+    header: "Name",
     cell: ({ row }) => {
       return (
         <a
@@ -29,7 +21,7 @@ export const columns: ColumnDef<Reading>[] = [
           rel="noopener noreferrer"
           className="text-primary hover:underline inline-flex items-center gap-2"
         >
-          {row.original.urlSource}
+          {row.original.name}
           <ExternalLink className="w-3.5 h-3.5 opacity-70" />
         </a>
       );
@@ -51,3 +43,5 @@ export const columns: ColumnDef<Reading>[] = [
     },
   },
 ];
+
+export default practices;
