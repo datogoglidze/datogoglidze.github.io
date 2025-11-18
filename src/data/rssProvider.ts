@@ -1,7 +1,9 @@
+import type { Url } from "@/types/common.ts";
+
 export interface RSSFeedProvider {
   id: number;
   name: string;
-  url: string;
+  url: Url;
   type: "articles" | "news";
 }
 
@@ -10,61 +12,91 @@ export default function getRssProviders(): RSSFeedProvider[] {
     {
       id: 1,
       name: "IGN Articles",
-      url: "https://feeds.feedburner.com/ign/all",
+      url: {
+        name: "FeedBurner",
+        address: "https://feeds.feedburner.com/ign/all",
+      },
       type: "articles",
     },
     {
       id: 2,
       name: "IGN News",
-      url: "https://feeds.feedburner.com/ign/news",
+      url: {
+        name: "FeedBurner",
+        address: "https://feeds.feedburner.com/ign/news",
+      },
       type: "news",
     },
     {
       id: 3,
       name: "PC Gamer Articles",
-      url: "https://www.pcgamer.com/rss/",
+      url: {
+        name: "PC Gamer",
+        address: "https://www.pcgamer.com/rss/",
+      },
       type: "articles",
     },
     {
       id: 4,
       name: "PC Gamer News",
-      url: "https://www.pcgamer.com/feeds/articletype/news/",
+      url: {
+        name: "PC Gamer",
+        address: "https://www.pcgamer.com/feeds/articletype/news/",
+      },
       type: "news",
     },
     {
       id: 5,
       name: "TechRadar Articles",
-      url: "https://www.techradar.com/feeds.xml",
+      url: {
+        name: "TechRadar",
+        address: "https://www.techradar.com/feeds.xml",
+      },
       type: "articles",
     },
     {
       id: 6,
       name: "TechRadar News",
-      url: "https://www.techradar.com/feeds/articletype/news",
+      url: {
+        name: "TechRadar",
+        address: "https://www.techradar.com/feeds/articletype/news",
+      },
       type: "news",
     },
     {
       id: 7,
       name: "GameSpot Articles",
-      url: "https://www.gamespot.com/feeds/mashup",
+      url: {
+        name: "GameSpot",
+        address: "https://www.gamespot.com/feeds/mashup",
+      },
       type: "articles",
     },
     {
       id: 8,
       name: "Polygon Articles",
-      url: "https://www.polygon.com/rss/index.xml",
+      url: {
+        name: "Polygon",
+        address: "https://www.polygon.com/rss/index.xml",
+      },
       type: "articles",
     },
     {
       id: 9,
       name: "Polygon News",
-      url: "https://www.polygon.com/rss/news/index.xml",
+      url: {
+        name: "Polygon",
+        address: "https://www.polygon.com/rss/news/index.xml",
+      },
       type: "news",
     },
     {
       id: 10,
       name: "Nvidia Articles",
-      url: "https://blogs.nvidia.com/feed/",
+      url: {
+        name: "Nvidia Blog",
+        address: "https://blogs.nvidia.com/feed/",
+      },
       type: "articles",
     },
   ];

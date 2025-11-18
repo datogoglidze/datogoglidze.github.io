@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem } from "./types";
+import type { RSSFeedItem } from "../../types/rss.ts";
 import {
   Card,
   CardHeader,
@@ -122,7 +122,7 @@ export default function ArticlesPage() {
     },
   );
 
-  const { feed, loading, error } = useRSSFeed(selectedProvider.url);
+  const { feed, loading, error } = useRSSFeed(selectedProvider.url.address);
 
   const handleProviderChange = (value: string) => {
     const provider = rssProviders.find((p) => p.id === Number(value))!;

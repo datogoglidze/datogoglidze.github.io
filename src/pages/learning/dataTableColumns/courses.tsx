@@ -17,7 +17,7 @@ const courses: ColumnDef<Course>[] = [
     cell: ({ row }) => {
       return (
         <a
-          href={row.original.url}
+          href={row.original.url.address}
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary hover:underline inline-flex items-center gap-2"

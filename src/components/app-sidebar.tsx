@@ -73,13 +73,13 @@ export function AppSidebar() {
             <SidebarMenuItem key={item.id}>
               <SidebarMenuButton asChild>
                 <a
-                  href={item.url}
+                  href={item.url.address}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
                   <item.icon />
-                  {item.title}
+                  {item.name}
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>

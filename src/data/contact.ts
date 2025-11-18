@@ -1,10 +1,11 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import * as React from "react";
+import type { Url } from "@/types/common.ts";
 
 export interface Contact {
   id: number;
-  title: string;
-  url: string;
+  name: string;
+  url: Url;
   icon: React.ElementType;
 }
 
@@ -12,26 +13,38 @@ export default function getContacts(): Contact[] {
   return [
     {
       id: 1,
-      title: "schwifterpickle",
-      url: "https://x.com/schwifterpickle",
+      name: "schwifterpickle",
+      url: {
+        name: "X",
+        address: "https://x.com/schwifterpickle",
+      },
       icon: Twitter,
     },
     {
       id: 2,
-      title: "d-goglidze",
-      url: "https://www.linkedin.com/in/d-goglidze/",
+      name: "d-goglidze",
+      url: {
+        name: "LinkedIn",
+        address: "https://www.linkedin.com/in/d-goglidze/",
+      },
       icon: Linkedin,
     },
     {
       id: 3,
-      title: "datogoglidze",
-      url: "https://github.com/datogoglidze",
+      name: "datogoglidze",
+      url: {
+        name: "GitHub",
+        address: "https://github.com/datogoglidze",
+      },
       icon: Github,
     },
     {
       id: 4,
-      title: "d.goglidze22@gmail.com",
-      url: "mailto:d.goglidze22@gmail.com",
+      name: "d.goglidze22@gmail.com",
+      url: {
+        name: "Gmail",
+        address: "mailto:d.goglidze22@gmail.com",
+      },
       icon: Mail,
     },
   ];

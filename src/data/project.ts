@@ -1,68 +1,92 @@
+import type { Image, Url } from "@/types/common.ts";
+
 export interface Project {
   id: number;
-  title: string;
+  name: string;
   description: string;
-  imageSrc: string;
-  imageAlt: string;
-  linkUrl: string;
-  linkText: string;
+  image: Image;
+  url: Url;
 }
 
 export default function getProjects(): Project[] {
   return [
     {
       id: 1,
-      title: "Technical Documentation Page",
+      name: "Technical Documentation Page",
       description: "Briefly describes basic financial analysis formulas",
-      imageSrc: "/main-page/technicalDocumentation.jpg",
-      imageAlt: "Statistical charts on paper",
-      linkUrl: "https://codepen.io/datogoglidze/pen/yLMBgKR",
-      linkText: "CodePen",
+      image: {
+        name: "Statistical charts on paper",
+        source: "/main-page/technicalDocumentation.jpg",
+      },
+      url: {
+        name: "CodePen",
+        address: "https://codepen.io/datogoglidze/pen/yLMBgKR",
+      },
     },
     {
       id: 2,
-      title: "Tribute Page",
+      name: "Tribute Page",
       description: "Key life events of Abraham Lincoln",
-      imageSrc: "/main-page/tributePage.jpg",
-      imageAlt: "Abraham Lincoln painting",
-      linkUrl: "https://codepen.io/datogoglidze/pen/vYgvqLb",
-      linkText: "CodePen",
+      image: {
+        name: "Abraham Lincoln painting",
+        source: "/main-page/tributePage.jpg",
+      },
+      url: {
+        name: "CodePen",
+        address: "https://codepen.io/datogoglidze/pen/vYgvqLb",
+      },
     },
     {
       id: 3,
-      title: "Product Landing Page",
+      name: "Product Landing Page",
       description: "Test page for product showcase",
-      imageSrc: "/main-page/productLandingPage.jpg",
-      imageAlt: "Dark studio with illuminated platforms",
-      linkUrl: "https://codepen.io/datogoglidze/pen/zYNXwjY",
-      linkText: "CodePen",
+      image: {
+        name: "Dark studio with illuminated platforms",
+        source: "/main-page/productLandingPage.jpg",
+      },
+      url: {
+        name: "CodePen",
+        address: "https://codepen.io/datogoglidze/pen/zYNXwjY",
+      },
     },
     {
       id: 4,
-      title: "Survey Form",
+      name: "Survey Form",
       description: "Survey page layout example",
-      imageSrc: "/main-page/surveyForm.jpg",
-      imageAlt: "Person filling out a form on a computer",
-      linkUrl: "https://codepen.io/datogoglidze/pen/qBRgggX",
-      linkText: "CodePen",
+      image: {
+        name: "Person filling out a form on a computer",
+        source: "/main-page/surveyForm.jpg",
+      },
+      url: {
+        name: "CodePen",
+        address: "https://codepen.io/datogoglidze/pen/qBRgggX",
+      },
     },
     {
       id: 5,
-      title: "Bloknot: Front",
+      name: "Bloknot: Front",
       description: "Manage basic notes",
-      imageSrc: "/main-page/bloknot.jpg",
-      imageAlt: "Note on a wall",
-      linkUrl: "https://github.com/datogoglidze/bloknot-front.git",
-      linkText: "GitHub",
+      image: {
+        name: "Note on a wall",
+        source: "/main-page/bloknot.jpg",
+      },
+      url: {
+        name: "GitHub",
+        address: "https://github.com/datogoglidze/bloknot-front.git",
+      },
     },
     {
       id: 6,
-      title: "Bloknot: Back",
+      name: "Bloknot: Back",
       description: "Manage basic notes",
-      imageSrc: "/main-page/bloknot.jpg",
-      imageAlt: "Note on a wall",
-      linkUrl: "https://github.com/datogoglidze/bloknot.git",
-      linkText: "GitHub",
+      image: {
+        name: "Note on a wall",
+        source: "/main-page/bloknot.jpg",
+      },
+      url: {
+        name: "GitHub",
+        address: "https://github.com/datogoglidze/bloknot.git",
+      },
     },
   ];
 }
