@@ -13,15 +13,7 @@ import { Separator } from "@/components/ui/separator.tsx";
 import getRssProviders, { type RSSFeedProvider } from "@/data/rssProvider.ts";
 import LoadingSkeleton from "@/pages/articles/LoadingSkeleton.tsx";
 import ArticleCard from "@/pages/articles/ArticleCard.tsx";
-
-function ErrorMessage({ message }: { message: string }) {
-  return (
-    <div className="text-destructive p-4 rounded-lg bg-destructive/10">
-      <p className="font-semibold">Error loading feed</p>
-      <p className="text-sm">{message}</p>
-    </div>
-  );
-}
+import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
 
 export default function ArticlesPage() {
   const rssProviders = getRssProviders();
