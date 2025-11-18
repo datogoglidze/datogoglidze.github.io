@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem } from "../../types/rss.ts";
+import type { RSSFeedItem } from "@/types/rss.ts";
 import {
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { ExternalLink, Calendar } from "lucide-react";
+import { Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -24,32 +23,7 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator.tsx";
 import getRssProviders, { type RSSFeedProvider } from "@/data/rssProvider.ts";
-
-const SKELETON_COUNT = 3;
-
-function LoadingSkeleton() {
-  return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
-        <Card key={i}>
-          <CardHeader className="mb-1">
-            <Skeleton className="h-10 w-full" />
-            <Skeleton className="h-4 w-1/2" />
-          </CardHeader>
-          <CardContent>
-            <Skeleton className="h-40" />
-          </CardContent>
-          <CardContent>
-            <Skeleton className="h-20 w-full" />
-          </CardContent>
-          <CardFooter>
-            <Skeleton className="h-10 w-full" />
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
-  );
-}
+import LoadingSkeleton from "@/pages/articles/LoadingSkeleton.tsx";
 
 function ErrorMessage({ message }: { message: string }) {
   return (
@@ -173,7 +147,7 @@ export default function ArticlesPage() {
           </Select>
         </div>
 
-        {loading && <LoadingSkeleton />}
+        {loading && <LoadingSkeleton count={3} />}
 
         {error && <ErrorMessage message={error} />}
 
