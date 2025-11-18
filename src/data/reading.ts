@@ -29,7 +29,7 @@ export default function getReadings(): Reading[] {
         address: "https://refactoring.guru/design-patterns/catalog",
       },
       languages: [
-        "c#",
+        "C#",
         "C++",
         "Go",
         "Java",
