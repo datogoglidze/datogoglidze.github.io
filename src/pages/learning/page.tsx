@@ -13,17 +13,17 @@ export default function LearningPage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-      <div className="bg-muted/50 rounded-xl md:min-h-min p-6">
+      <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
         <h1 className="text-2xl font-bold mb-4">Courses</h1>
         <DataTable columns={coursesColumns} data={courses} />
       </div>
 
-      <div className="bg-muted/50 rounded-xl md:min-h-min p-6">
+      <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
         <h1 className="text-2xl font-bold mb-4">Reading</h1>
         <DataTable columns={readingsColumns} data={readings} />
       </div>
 
-      <div className="bg-muted/50 rounded-xl md:min-h-min p-6">
+      <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
         <h1 className="text-2xl font-bold mb-4">Practice</h1>
         <DataTable columns={practicesColumns} data={practices} />
       </div>

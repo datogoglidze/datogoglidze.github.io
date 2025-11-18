@@ -13,19 +13,23 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <BrowserRouter>
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarInset>
+        <div className="[--header-height:calc(--spacing(14))]">
+          <SidebarProvider className="flex flex-col">
             <SiteHeader />
-            <Routes>
-              <Route path="/" element={<Navigate to="/home" replace />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/learning" element={<LearningPage />} />
-              <Route path="/articles" element={<ArticlesPage />} />
-              <Route path="/memes" element={<MemesPage />} />
-            </Routes>
-          </SidebarInset>
-        </SidebarProvider>
+            <div className="flex flex-1">
+              <AppSidebar />
+              <SidebarInset>
+                <Routes>
+                  <Route path="/" element={<Navigate to="/home" replace />} />
+                  <Route path="/home" element={<HomePage />} />
+                  <Route path="/learning" element={<LearningPage />} />
+                  <Route path="/articles" element={<ArticlesPage />} />
+                  <Route path="/memes" element={<MemesPage />} />
+                </Routes>
+              </SidebarInset>
+            </div>
+          </SidebarProvider>
+        </div>
       </BrowserRouter>
     </ThemeProvider>
   );

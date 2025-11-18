@@ -15,7 +15,7 @@ export function SiteHeader() {
   const title = routeTitles[location.pathname];
 
   return (
-    <header className="flex justify-between h-16 shrink-0 items-center gap-2 px-4">
+    <header className="flex justify-between h-16 shrink-0 items-center gap-2 px-4 bg-background sticky top-0 z-50">
       <div className="flex flex-row">
         <SidebarTrigger className="-ml-1" />
         <Separator
