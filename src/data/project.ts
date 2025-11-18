@@ -1,5 +1,5 @@
 export interface Project {
-  id: string;
+  id: number;
   title: string;
   description: string;
   imageSrc: string;
@@ -11,7 +11,7 @@ export interface Project {
 export default function getProjects(): Project[] {
   return [
     {
-      id: "1",
+      id: 1,
       title: "Technical Documentation Page",
       description: "Briefly describes basic financial analysis formulas",
       imageSrc: "/main-page/technicalDocumentation.jpg",
@@ -20,7 +20,7 @@ export default function getProjects(): Project[] {
       linkText: "CodePen",
     },
     {
-      id: "2",
+      id: 2,
       title: "Tribute Page",
       description: "Key life events of Abraham Lincoln",
       imageSrc: "/main-page/tributePage.jpg",
@@ -29,7 +29,7 @@ export default function getProjects(): Project[] {
       linkText: "CodePen",
     },
     {
-      id: "3",
+      id: 3,
       title: "Product Landing Page",
       description: "Test page for product showcase",
       imageSrc: "/main-page/productLandingPage.jpg",
@@ -38,7 +38,7 @@ export default function getProjects(): Project[] {
       linkText: "CodePen",
     },
     {
-      id: "4",
+      id: 4,
       title: "Survey Form",
       description: "Survey page layout example",
       imageSrc: "/main-page/surveyForm.jpg",
@@ -47,7 +47,7 @@ export default function getProjects(): Project[] {
       linkText: "CodePen",
     },
     {
-      id: "5",
+      id: 5,
       title: "Bloknot: Front",
       description: "Manage basic notes",
       imageSrc: "/main-page/bloknot.jpg",
@@ -56,7 +56,7 @@ export default function getProjects(): Project[] {
       linkText: "GitHub",
     },
     {
-      id: "6",
+      id: 6,
       title: "Bloknot: Back",
       description: "Manage basic notes",
       imageSrc: "/main-page/bloknot.jpg",
