@@ -17,6 +17,7 @@ import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
 
 export default function ArticlesPage() {
   const rssProviders = getRssProviders();
+
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
     () => {
       const stored = localStorage.getItem("ArticlesSelectedProvider");
@@ -25,18 +26,16 @@ export default function ArticlesPage() {
         if (provider) return provider;
       }
       return rssProviders[0];
-    },
+    }
   );
 
   const { feed, loading, error } = useRSSFeed(selectedProvider.url.address);
 
-  const handleProviderChange = (value: string) => {
-    const provider = rssProviders.find((p) => p.id === Number(value))!;
+  const handleProviderChange = (id: string) => {
+    const provider = rssProviders.find((p) => p.id === Number(id))!;
     setSelectedProvider(provider);
-    localStorage.setItem("ArticlesSelectedProvider", value);
+    localStorage.setItem("ArticlesSelectedProvider", id);
   };
-
-  const hasArticles = feed && feed.items.length > 0;
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
@@ -88,25 +87,25 @@ export default function ArticlesPage() {
             {feed.items.length === 0 ? (
               <p className="text-muted-foreground">No articles found.</p>
             ) : (
-              <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {feed.items.map((item, index) => (
-                  <ArticleCard
-                    key={item.guid || item.link || index}
-                    item={item}
-                  />
-                ))}
+              <div>
+                <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {feed.items.map((article, index) => (
+                    <ArticleCard
+                      key={article.guid || article.link || index}
+                      article={article}
+                    />
+                  ))}
+                </div>
+
+                <div className="flex mt-4 flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
+                  <h1>That's all for now...</h1>
+                  <h1>Come back tomorrow</h1>
+                </div>
               </div>
             )}
           </div>
         )}
       </div>
-
-      {!loading && !error && hasArticles && (
-        <div className="flex flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
-          <h1>That's all for now...</h1>
-          <h1>Come back tomorrow</h1>
-        </div>
-      )}
     </div>
   );
 }
