@@ -3,15 +3,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge.tsx";
 import { ExternalLink } from "lucide-react";
-
-export type Reading = {
-  id: number;
-  title: string;
-  author: string;
-  url: string;
-  urlSource: string;
-  languages: string[];
-};
+import type { Reading } from "@/data/reading.ts";
 
 export const columns: ColumnDef<Reading>[] = [
   {

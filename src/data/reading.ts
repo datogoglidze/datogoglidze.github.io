@@ -1,4 +1,11 @@
-import type { Reading } from "@/pages/learning/reading/columns.tsx";
+export type Reading = {
+  id: number;
+  title: string;
+  author: string;
+  url: string;
+  urlSource: string;
+  languages: string[];
+};
 
 export default function getReadingsData(): Reading[] {
   return [
