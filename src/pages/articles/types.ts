@@ -16,8 +16,10 @@ export interface RSSFeed {
 }
 
 export interface RSSFeedProvider {
+  id: number;
   name: string;
   url: string;
+  type: "articles" | "news";
 }
 
 export interface UseRSSFeedResult {
