@@ -88,10 +88,10 @@ export default function ArticlesPage() {
               <p className="text-muted-foreground">No articles found.</p>
             ) : (
               <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {feed.items.map((item, index) => (
+                {feed.items.map((article, index) => (
                   <ArticleCard
-                    key={item.guid || item.link || index}
-                    article={item}
+                    key={article.guid || article.link || index}
+                    article={article}
                   />
                 ))}
               </div>
