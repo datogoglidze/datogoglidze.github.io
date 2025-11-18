@@ -87,25 +87,25 @@ export default function ArticlesPage() {
             {feed.items.length === 0 ? (
               <p className="text-muted-foreground">No articles found.</p>
             ) : (
-              <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {feed.items.map((article, index) => (
-                  <ArticleCard
-                    key={article.guid || article.link || index}
-                    article={article}
-                  />
-                ))}
+              <div>
+                <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {feed.items.map((article, index) => (
+                    <ArticleCard
+                      key={article.guid || article.link || index}
+                      article={article}
+                    />
+                  ))}
+                </div>
+
+                <div className="flex mt-4 flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
+                  <h1>That's all for now...</h1>
+                  <h1>Come back tomorrow</h1>
+                </div>
               </div>
             )}
           </div>
         )}
       </div>
-
-      {!loading && !error && feed && feed.items.length > 0 && (
-        <div className="flex flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
-          <h1>That's all for now...</h1>
-          <h1>Come back tomorrow</h1>
-        </div>
-      )}
     </div>
   );
 }
