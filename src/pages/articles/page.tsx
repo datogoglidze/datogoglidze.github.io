@@ -17,18 +17,20 @@ import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator.tsx";
 
-const DEFAULT_PROVIDER_ID = "ignArticles";
-type FeedProviderId = keyof typeof RSS_FEED_PROVIDERS;
+const DEFAULT_PROVIDER_ID = 1;
 const SKELETON_COUNT = 3;
 
 function LoadingSkeleton() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {Array.from({ length: SKELETON_COUNT }).map((_, i) => (
         <Card key={i}>
           <CardHeader className="mb-1">
@@ -109,19 +111,18 @@ function ArticleCard({ item }: { item: RSSFeedItem }) {
 }
 
 export default function ArticlesPage() {
-  const [selectedProvider, setSelectedProvider] = useState<FeedProviderId>(
-    () => {
-      const stored = localStorage.getItem("ArticlesSelectedProvider");
-      return stored && stored in RSS_FEED_PROVIDERS
-        ? (stored as FeedProviderId)
-        : DEFAULT_PROVIDER_ID;
-    },
-  );
-  const feedUrl = RSS_FEED_PROVIDERS[selectedProvider].url;
-  const { feed, loading, error } = useRSSFeed(feedUrl);
+  const [selectedProviderId, setSelectedProviderId] = useState<number>(() => {
+    const stored = localStorage.getItem("ArticlesSelectedProvider");
+    return stored && RSS_FEED_PROVIDERS.some((p) => p.id === Number(stored))
+      ? Number(stored)
+      : DEFAULT_PROVIDER_ID;
+  });
+
+  const provider = RSS_FEED_PROVIDERS.find((p) => p.id === selectedProviderId)!;
+  const { feed, loading, error } = useRSSFeed(provider.url);
 
   const handleProviderChange = (value: string) => {
-    setSelectedProvider(value as FeedProviderId);
+    setSelectedProviderId(Number(value));
     localStorage.setItem("ArticlesSelectedProvider", value);
   };
 
@@ -129,19 +130,41 @@ export default function ArticlesPage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-      <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)]md:min-h-min rounded-xl p-6">
+      <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] md:min-h-min rounded-xl p-6">
         <div className="flex gap-3 items-center mb-4">
           <h1 className="text-md font-bold">Provider</h1>
-          <Select value={selectedProvider} onValueChange={handleProviderChange}>
+          <Select
+            value={String(selectedProviderId)}
+            onValueChange={handleProviderChange}
+          >
             <SelectTrigger className="w-[170px]">
-              <SelectValue placeholder="Select a provider" />
+              <SelectValue placeholder="Select provider" />
             </SelectTrigger>
+
             <SelectContent>
-              {Object.entries(RSS_FEED_PROVIDERS).map(([id, provider]) => (
-                <SelectItem key={id} value={id}>
-                  {provider.name}
-                </SelectItem>
-              ))}
+              <SelectGroup>
+                <SelectLabel>News</SelectLabel>
+                {RSS_FEED_PROVIDERS.filter(
+                  (provider) => provider.type === "news",
+                ).map((provider) => (
+                  <SelectItem key={provider.id} value={String(provider.id)}>
+                    {provider.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+
+              <Separator orientation="horizontal" className="my-2" />
+
+              <SelectGroup>
+                <SelectLabel>Articles</SelectLabel>
+                {RSS_FEED_PROVIDERS.filter(
+                  (provider) => provider.type === "articles",
+                ).map((provider) => (
+                  <SelectItem key={provider.id} value={String(provider.id)}>
+                    {provider.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>

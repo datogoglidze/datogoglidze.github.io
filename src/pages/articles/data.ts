@@ -1,44 +1,64 @@
 import type { RSSFeedProvider } from "./types";
 
-export const RSS_FEED_PROVIDERS: Record<string, RSSFeedProvider> = {
-  ignArticles: {
+export const RSS_FEED_PROVIDERS: RSSFeedProvider[] = [
+  {
+    id: 1,
     name: "IGN Articles",
     url: "https://feeds.feedburner.com/ign/all",
+    type: "articles",
   },
-  ignNews: {
+  {
+    id: 2,
     name: "IGN News",
     url: "https://feeds.feedburner.com/ign/news",
+    type: "news",
   },
-  pcgamerArticles: {
+  {
+    id: 3,
     name: "PC Gamer Articles",
     url: "https://www.pcgamer.com/rss/",
+    type: "articles",
   },
-  pcgamerNews: {
+  {
+    id: 4,
     name: "PC Gamer News",
     url: "https://www.pcgamer.com/feeds/articletype/news/",
+    type: "news",
   },
-  techradarArticles: {
+  {
+    id: 5,
     name: "TechRadar Articles",
     url: "https://www.techradar.com/feeds.xml",
+    type: "articles",
   },
-  techradarNews: {
+  {
+    id: 6,
     name: "TechRadar News",
     url: "https://www.techradar.com/feeds/articletype/news",
+    type: "news",
   },
-  gamesportArticles: {
+  {
+    id: 7,
     name: "GameSpot Articles",
     url: "https://www.gamespot.com/feeds/mashup",
+    type: "articles",
   },
-  polygonArticles: {
+  {
+    id: 8,
     name: "Polygon Articles",
     url: "https://www.polygon.com/rss/index.xml",
+    type: "articles",
   },
-  polygonNews: {
+  {
+    id: 9,
     name: "Polygon News",
     url: "https://www.polygon.com/rss/news/index.xml",
+    type: "news",
   },
-  nvidiaBlog: {
-    name: "Nvidia Blog",
+  {
+    id: 10,
+    name: "Nvidia Articles",
     url: "https://blogs.nvidia.com/feed/",
+    type: "articles",
   },
-};
+];
