@@ -15,13 +15,6 @@ export interface RSSFeed {
   items: RSSFeedItem[];
 }
 
-export interface RSSFeedProvider {
-  id: number;
-  name: string;
-  url: string;
-  type: "articles" | "news";
-}
-
 export interface UseRSSFeedResult {
   feed: RSSFeed | null;
   loading: boolean;

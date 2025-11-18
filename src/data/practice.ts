@@ -1,6 +1,11 @@
-import type { Practice } from "@/pages/learning/practices/columns.tsx";
+export interface Practice {
+  id: number;
+  name: string;
+  url: string;
+  languages: string[];
+}
 
-export default function getPracticesData(): Practice[] {
+export default function getPractices(): Practice[] {
   return [
     {
       id: 1,

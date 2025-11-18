@@ -1,6 +1,13 @@
-import type { Reading } from "@/pages/learning/reading/columns.tsx";
+export interface Reading {
+  id: number;
+  title: string;
+  author: string;
+  url: string;
+  urlSource: string;
+  languages: string[];
+}
 
-export default function getReadingsData(): Reading[] {
+export default function getReadings(): Reading[] {
   return [
     {
       id: 1,

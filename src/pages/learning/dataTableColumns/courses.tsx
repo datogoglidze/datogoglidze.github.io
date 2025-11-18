@@ -2,33 +2,18 @@
 
 import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge.tsx";
+import { IconCircleCheckFilled } from "@tabler/icons-react";
 import { ExternalLink } from "lucide-react";
+import type { Course } from "@/data/course.ts";
 
-export type Reading = {
-  id: number;
-  title: string;
-  author: string;
-  url: string;
-  urlSource: string;
-  languages: string[];
-};
-
-export const columns: ColumnDef<Reading>[] = [
+const courses: ColumnDef<Course>[] = [
   {
     accessorKey: "id",
     header: "#",
   },
   {
-    accessorKey: "title",
-    header: "Title",
-  },
-  {
-    accessorKey: "author",
-    header: "Author",
-  },
-  {
-    accessorKey: "url",
-    header: "Source",
+    accessorKey: "name",
+    header: "Name",
     cell: ({ row }) => {
       return (
         <a
@@ -37,11 +22,24 @@ export const columns: ColumnDef<Reading>[] = [
           rel="noopener noreferrer"
           className="text-primary hover:underline inline-flex items-center gap-2"
         >
-          {row.original.urlSource}
+          {row.original.name}
           <ExternalLink className="w-3.5 h-3.5 opacity-70" />
         </a>
       );
     },
+  },
+  {
+    accessorKey: "hasCertificate",
+    header: "With Certificate",
+    cell: ({ row }) => (
+      <Badge variant="outline" className="px-1.5">
+        {row.original.hasCertificate ? (
+          <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
+        ) : (
+          <IconCircleCheckFilled className="fill-red-500 dark:fill-red-400" />
+        )}
+      </Badge>
+    ),
   },
   {
     accessorKey: "languages",
@@ -59,3 +57,5 @@ export const columns: ColumnDef<Reading>[] = [
     },
   },
 ];
+
+export default courses;

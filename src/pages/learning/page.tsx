@@ -1,31 +1,31 @@
 import { DataTable } from "@/pages/learning/DataTable.tsx";
-import { columns as courseColumns } from "@/pages/learning/courses/columns.tsx";
-import { columns as readingColumns } from "@/pages/learning/reading/columns.tsx";
-import { columns as practiceColumns } from "@/pages/learning/practices/columns.tsx";
-import getCoursesData from "@/pages/learning/courses/data.tsx";
-import getReadingsData from "@/pages/learning/reading/data.tsx";
-import getPracticesData from "@/pages/learning/practices/data.tsx";
+import coursesColumns from "@/pages/learning/dataTableColumns/courses.tsx";
+import readingsColumns from "@/pages/learning/dataTableColumns/readings.tsx";
+import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
+import getCourses from "@/data/course.ts";
+import getPractices from "@/data/practice.ts";
+import getReadings from "@/data/reading.ts";
 
 export default function LearningPage() {
-  const courses = getCoursesData();
-  const readings = getReadingsData();
-  const practices = getPracticesData();
+  const courses = getCourses();
+  const readings = getReadings();
+  const practices = getPractices();
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
       <div className="bg-muted/50 rounded-xl md:min-h-min p-6">
         <h1 className="text-2xl font-bold mb-4">Courses</h1>
-        <DataTable columns={courseColumns} data={courses} />
+        <DataTable columns={coursesColumns} data={courses} />
       </div>
 
       <div className="bg-muted/50 rounded-xl md:min-h-min p-6">
         <h1 className="text-2xl font-bold mb-4">Reading</h1>
-        <DataTable columns={readingColumns} data={readings} />
+        <DataTable columns={readingsColumns} data={readings} />
       </div>
 
       <div className="bg-muted/50 rounded-xl md:min-h-min p-6">
         <h1 className="text-2xl font-bold mb-4">Practice</h1>
-        <DataTable columns={practiceColumns} data={practices} />
+        <DataTable columns={practicesColumns} data={practices} />
       </div>
     </div>
   );

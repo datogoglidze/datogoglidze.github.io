@@ -1,19 +1,11 @@
 "use client";
 
 import type { ColumnDef } from "@tanstack/react-table";
-import { Badge } from "@/components/ui/badge";
-import { IconCircleCheckFilled } from "@tabler/icons-react";
+import { Badge } from "@/components/ui/badge.tsx";
 import { ExternalLink } from "lucide-react";
+import type { Practice } from "@/data/practice.ts";
 
-export type Course = {
-  id: number;
-  name: string;
-  url: string;
-  languages: string[];
-  hasCertificate: boolean;
-};
-
-export const columns: ColumnDef<Course>[] = [
+const practices: ColumnDef<Practice>[] = [
   {
     accessorKey: "id",
     header: "#",
@@ -36,19 +28,6 @@ export const columns: ColumnDef<Course>[] = [
     },
   },
   {
-    accessorKey: "hasCertificate",
-    header: "With Certificate",
-    cell: ({ row }) => (
-      <Badge variant="outline" className="px-1.5">
-        {row.original.hasCertificate ? (
-          <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
-        ) : (
-          <IconCircleCheckFilled className="fill-red-500 dark:fill-red-400" />
-        )}
-      </Badge>
-    ),
-  },
-  {
     accessorKey: "languages",
     header: "Languages",
     cell: ({ row }) => {
@@ -64,3 +43,5 @@ export const columns: ColumnDef<Course>[] = [
     },
   },
 ];
+
+export default practices;

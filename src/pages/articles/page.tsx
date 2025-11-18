@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem, RSSFeedProvider } from "./types";
-import { RSS_FEED_PROVIDERS } from "./data";
+import type { RSSFeedItem } from "./types";
 import {
   Card,
   CardHeader,
@@ -24,6 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator.tsx";
+import getRssProviders, { type RSSFeedProvider } from "@/data/rssProvider.ts";
 
 const SKELETON_COUNT = 3;
 
@@ -110,23 +110,22 @@ function ArticleCard({ item }: { item: RSSFeedItem }) {
 }
 
 export default function ArticlesPage() {
+  const rssProviders = getRssProviders();
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
     () => {
       const stored = localStorage.getItem("ArticlesSelectedProvider");
       if (stored) {
-        const provider = RSS_FEED_PROVIDERS.find(
-          (p) => p.id === Number(stored),
-        );
+        const provider = rssProviders.find((p) => p.id === Number(stored));
         if (provider) return provider;
       }
-      return RSS_FEED_PROVIDERS[0];
+      return rssProviders[0];
     },
   );
 
   const { feed, loading, error } = useRSSFeed(selectedProvider.url);
 
   const handleProviderChange = (value: string) => {
-    const provider = RSS_FEED_PROVIDERS.find((p) => p.id === Number(value))!;
+    const provider = rssProviders.find((p) => p.id === Number(value))!;
     setSelectedProvider(provider);
     localStorage.setItem("ArticlesSelectedProvider", value);
   };
@@ -149,26 +148,26 @@ export default function ArticlesPage() {
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>News</SelectLabel>
-                {RSS_FEED_PROVIDERS.filter(
-                  (provider) => provider.type === "news",
-                ).map((provider) => (
-                  <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name}
-                  </SelectItem>
-                ))}
+                {rssProviders
+                  .filter((provider) => provider.type === "news")
+                  .map((provider) => (
+                    <SelectItem key={provider.id} value={String(provider.id)}>
+                      {provider.name}
+                    </SelectItem>
+                  ))}
               </SelectGroup>
 
               <Separator orientation="horizontal" className="my-2" />
 
               <SelectGroup>
                 <SelectLabel>Articles</SelectLabel>
-                {RSS_FEED_PROVIDERS.filter(
-                  (provider) => provider.type === "articles",
-                ).map((provider) => (
-                  <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name}
-                  </SelectItem>
-                ))}
+                {rssProviders
+                  .filter((provider) => provider.type === "articles")
+                  .map((provider) => (
+                    <SelectItem key={provider.id} value={String(provider.id)}>
+                      {provider.name}
+                    </SelectItem>
+                  ))}
               </SelectGroup>
             </SelectContent>
           </Select>

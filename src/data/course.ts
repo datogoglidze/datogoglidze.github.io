@@ -1,6 +1,12 @@
-import type { Course } from "@/pages/learning/courses/columns.tsx";
+export interface Course {
+  id: number;
+  name: string;
+  url: string;
+  languages: string[];
+  hasCertificate: boolean;
+}
 
-export default function getCoursesData(): Course[] {
+export default function getCourses(): Course[] {
   return [
     {
       id: 1,
