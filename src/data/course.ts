@@ -6,7 +6,7 @@ export type Course = {
   hasCertificate: boolean;
 };
 
-export default function getCoursesData(): Course[] {
+export default function getCourses(): Course[] {
   return [
     {
       id: 1,

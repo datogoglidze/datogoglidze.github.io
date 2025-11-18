@@ -1,8 +1,8 @@
 import { ProjectCard } from "./ProjectCard.tsx";
-import getProjectsData from "@/data/project.ts";
+import getProjects from "@/data/project.ts";
 
 export default function HomePage() {
-  const projects = getProjectsData();
+  const projects = getProjects();
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

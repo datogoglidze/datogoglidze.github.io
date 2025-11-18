@@ -8,7 +8,7 @@ export interface Project {
   linkText: string;
 }
 
-export default function getProjectsData(): Project[] {
+export default function getProjects(): Project[] {
   return [
     {
       id: "1",

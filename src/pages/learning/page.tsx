@@ -2,14 +2,14 @@ import { DataTable } from "@/pages/learning/DataTable.tsx";
 import coursesColumns from "@/pages/learning/dataTableColumns/courses.tsx";
 import readingsColumns from "@/pages/learning/dataTableColumns/readings.tsx";
 import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
-import getCoursesData from "@/data/course.ts";
-import getPracticesData from "@/data/practice.ts";
-import getReadingsData from "@/data/reading.ts";
+import getCourses from "@/data/course.ts";
+import getPractices from "@/data/practice.ts";
+import getReadings from "@/data/reading.ts";
 
 export default function LearningPage() {
-  const courses = getCoursesData();
-  const readings = getReadingsData();
-  const practices = getPracticesData();
+  const courses = getCourses();
+  const readings = getReadings();
+  const practices = getPractices();
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

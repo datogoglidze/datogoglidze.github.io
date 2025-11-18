@@ -7,7 +7,7 @@ export type Reading = {
   languages: string[];
 };
 
-export default function getReadingsData(): Reading[] {
+export default function getReadings(): Reading[] {
   return [
     {
       id: 1,

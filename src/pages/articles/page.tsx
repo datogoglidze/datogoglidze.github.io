@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator.tsx";
-import getRssProvidersData from "@/data/rssProviders.ts";
+import getRssProviders from "@/data/rssProvider.ts";
 
 const SKELETON_COUNT = 3;
 
@@ -110,7 +110,7 @@ function ArticleCard({ item }: { item: RSSFeedItem }) {
 }
 
 export default function ArticlesPage() {
-  const rssProviders = getRssProvidersData();
+  const rssProviders = getRssProviders();
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
     () => {
       const stored = localStorage.getItem("ArticlesSelectedProvider");

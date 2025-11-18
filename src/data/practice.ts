@@ -5,7 +5,7 @@ export type Practice = {
   languages: string[];
 };
 
-export default function getPracticesData(): Practice[] {
+export default function getPractices(): Practice[] {
   return [
     {
       id: 1,

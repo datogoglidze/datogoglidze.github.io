@@ -1,6 +1,6 @@
 import type { RSSFeedProvider } from "@/pages/articles/types.ts";
 
-export default function getRssProvidersData(): RSSFeedProvider[] {
+export default function getRssProviders(): RSSFeedProvider[] {
   return [
     {
       id: 1,
