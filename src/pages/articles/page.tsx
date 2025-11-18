@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem } from "./types";
+import type { RSSFeedItem, RSSFeedProvider } from "./types";
 import { RSS_FEED_PROVIDERS } from "./data";
 import {
   Card,
@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator.tsx";
 
-const DEFAULT_PROVIDER_ID = 1;
 const SKELETON_COUNT = 3;
 
 function LoadingSkeleton() {
@@ -111,18 +110,24 @@ function ArticleCard({ item }: { item: RSSFeedItem }) {
 }
 
 export default function ArticlesPage() {
-  const [selectedProviderId, setSelectedProviderId] = useState<number>(() => {
-    const stored = localStorage.getItem("ArticlesSelectedProvider");
-    return stored && RSS_FEED_PROVIDERS.some((p) => p.id === Number(stored))
-      ? Number(stored)
-      : DEFAULT_PROVIDER_ID;
-  });
+  const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
+    () => {
+      const stored = localStorage.getItem("ArticlesSelectedProvider");
+      if (stored) {
+        const provider = RSS_FEED_PROVIDERS.find(
+          (p) => p.id === Number(stored),
+        );
+        if (provider) return provider;
+      }
+      return RSS_FEED_PROVIDERS[0];
+    },
+  );
 
-  const provider = RSS_FEED_PROVIDERS.find((p) => p.id === selectedProviderId)!;
-  const { feed, loading, error } = useRSSFeed(provider.url);
+  const { feed, loading, error } = useRSSFeed(selectedProvider.url);
 
   const handleProviderChange = (value: string) => {
-    setSelectedProviderId(Number(value));
+    const provider = RSS_FEED_PROVIDERS.find((p) => p.id === Number(value))!;
+    setSelectedProvider(provider);
     localStorage.setItem("ArticlesSelectedProvider", value);
   };
 
@@ -134,7 +139,7 @@ export default function ArticlesPage() {
         <div className="flex gap-3 items-center mb-4">
           <h1 className="text-md font-bold">Provider</h1>
           <Select
-            value={String(selectedProviderId)}
+            value={String(selectedProvider.id)}
             onValueChange={handleProviderChange}
           >
             <SelectTrigger className="w-[170px]">
