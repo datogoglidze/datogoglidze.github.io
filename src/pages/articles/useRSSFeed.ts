@@ -21,7 +21,7 @@ function createContentSnippet(content: string): string {
 
 function extractThumbnail(
   item: Element,
-  description: string,
+  description: string
 ): string | undefined {
   const mediaThumbnail = item.querySelector("media\\:thumbnail, thumbnail");
   if (mediaThumbnail) {

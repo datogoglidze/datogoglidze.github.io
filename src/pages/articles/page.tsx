@@ -26,7 +26,7 @@ export default function ArticlesPage() {
         if (provider) return provider;
       }
       return rssProviders[0];
-    },
+    }
   );
 
   const { feed, loading, error } = useRSSFeed(selectedProvider.url.address);
