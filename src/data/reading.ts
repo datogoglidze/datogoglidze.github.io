@@ -1,9 +1,10 @@
+import type { Url } from "@/types/common.ts";
+
 export interface Reading {
   id: number;
   name: string;
   author: string;
-  url: string;
-  urlName: string;
+  url: Url;
   languages: string[];
 }
 
@@ -13,16 +14,20 @@ export default function getReadings(): Reading[] {
       id: 1,
       name: "SQL Style Guide",
       author: "Simon Holywel",
-      url: "https://www.sqlstyle.guide/",
-      urlName: "sqlstyle",
+      url: {
+        name: "sqlstyle",
+        address: "https://www.sqlstyle.guide/",
+      },
       languages: ["SQL"],
     },
     {
       id: 2,
       name: "Design Patterns",
       author: "Alexander Shvets",
-      url: "https://refactoring.guru/design-patterns/catalog",
-      urlName: "Refactoring Guru",
+      url: {
+        name: "Refactoring Guru",
+        address: "https://refactoring.guru/design-patterns/catalog",
+      },
       languages: [
         "c#",
         "C++",
@@ -40,24 +45,30 @@ export default function getReadings(): Reading[] {
       id: 3,
       name: "Python Design Patterns",
       author: "Brandon Rhodes",
-      url: "https://python-patterns.guide/",
-      urlName: "python-patterns",
+      url: {
+        name: "python-patterns",
+        address: "https://python-patterns.guide/",
+      },
       languages: ["Python"],
     },
     {
       id: 4,
       name: "Clean Code: A Handbook of Agile Software Craftsmanship",
       author: "Robert C. Martin",
-      url: "https://a.co/d/czySsBe",
-      urlName: "Amazon",
+      url: {
+        name: "Amazon",
+        address: "https://a.co/d/czySsBe",
+      },
       languages: ["Java"],
     },
     {
       id: 5,
       name: "The Clean Coder: A Code of Conduct for Professional Programmers",
       author: "Robert C. Martin",
-      url: "https://a.co/d/j2et4s8",
-      urlName: "Amazon",
+      url: {
+        name: "Amazon",
+        address: "https://a.co/d/j2et4s8",
+      },
       languages: ["Java"],
     },
   ];

@@ -122,7 +122,7 @@ export default function ArticlesPage() {
     },
   );
 
-  const { feed, loading, error } = useRSSFeed(selectedProvider.url);
+  const { feed, loading, error } = useRSSFeed(selectedProvider.url.address);
 
   const handleProviderChange = (value: string) => {
     const provider = rssProviders.find((p) => p.id === Number(value))!;

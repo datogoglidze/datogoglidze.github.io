@@ -20,20 +20,20 @@ export function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="flex flex-1 items-end">
         <img
-          src={project.imageSource}
+          src={project.image.source}
           className="rounded-md"
-          alt={project.imageAlt}
+          alt={project.image.name}
         />
       </CardContent>
       <CardFooter>
         <Button variant="outline" size="sm" asChild className="w-full">
           <a
-            href={project.url}
+            href={project.url.address}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2"
           >
-            {project.urlName}
+            {project.url.name}
             <ExternalLink className="h-3 w-3" />
           </a>
         </Button>
