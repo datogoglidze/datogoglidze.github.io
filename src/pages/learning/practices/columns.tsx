@@ -3,13 +3,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge.tsx";
 import { ExternalLink } from "lucide-react";
-
-export type Practice = {
-  id: number;
-  name: string;
-  url: string;
-  languages: string[];
-};
+import type { Practice } from "@/data/practice.ts";
 
 export const columns: ColumnDef<Practice>[] = [
   {

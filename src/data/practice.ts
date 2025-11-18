@@ -1,4 +1,9 @@
-import type { Practice } from "@/pages/learning/practices/columns.tsx";
+export type Practice = {
+  id: number;
+  name: string;
+  url: string;
+  languages: string[];
+};
 
 export default function getPracticesData(): Practice[] {
   return [
