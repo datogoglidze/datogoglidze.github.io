@@ -92,7 +92,7 @@ export default function ArticlesPage() {
                 {feed.items.map((item, index) => (
                   <ArticleCard
                     key={item.guid || item.link || index}
-                    item={item}
+                    article={item}
                   />
                 ))}
               </div>
