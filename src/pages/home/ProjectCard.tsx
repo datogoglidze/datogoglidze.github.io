@@ -11,11 +11,7 @@ import { Button } from "@/components/ui/button.tsx";
 
 import type { Project } from "@/data/project.ts";
 
-interface ProjectCardProps {
-  project: Project;
-}
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card className="bg-muted/50">
       <CardHeader>
