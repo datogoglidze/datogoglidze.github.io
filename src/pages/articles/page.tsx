@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem, RSSFeedProvider } from "./types";
+import type { RSSFeedItem } from "./types";
 import {
   Card,
   CardHeader,
@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator.tsx";
-import getRssProviders from "@/data/rssProvider.ts";
+import getRssProviders, { type RSSFeedProvider } from "@/data/rssProvider.ts";
 
 const SKELETON_COUNT = 3;
 

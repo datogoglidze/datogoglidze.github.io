@@ -1,9 +1,9 @@
-export type Practice = {
+export interface Practice {
   id: number;
   name: string;
   url: string;
   languages: string[];
-};
+}
 
 export default function getPractices(): Practice[] {
   return [

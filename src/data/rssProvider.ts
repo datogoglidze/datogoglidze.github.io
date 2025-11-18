@@ -1,4 +1,9 @@
-import type { RSSFeedProvider } from "@/pages/articles/types.ts";
+export interface RSSFeedProvider {
+  id: number;
+  name: string;
+  url: string;
+  type: "articles" | "news";
+}
 
 export default function getRssProviders(): RSSFeedProvider[] {
   return [

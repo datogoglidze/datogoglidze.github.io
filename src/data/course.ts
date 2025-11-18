@@ -1,10 +1,10 @@
-export type Course = {
+export interface Course {
   id: number;
   name: string;
   url: string;
   languages: string[];
   hasCertificate: boolean;
-};
+}
 
 export default function getCourses(): Course[] {
   return [
