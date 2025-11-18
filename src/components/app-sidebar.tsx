@@ -42,7 +42,10 @@ export function AppSidebar() {
   const contacts = getContacts();
 
   return (
-    <Sidebar variant="floating">
+    <Sidebar
+      variant="floating"
+      className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
+    >
       <SidebarHeader>
         <div className="flex items-center gap-2 font-medium text-sm">
           <Avatar>
