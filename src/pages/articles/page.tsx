@@ -31,10 +31,10 @@ export default function ArticlesPage() {
 
   const { feed, loading, error } = useRSSFeed(selectedProvider.url.address);
 
-  const handleProviderChange = (value: string) => {
-    const provider = rssProviders.find((p) => p.id === Number(value))!;
+  const handleProviderChange = (id: string) => {
+    const provider = rssProviders.find((p) => p.id === Number(id))!;
     setSelectedProvider(provider);
-    localStorage.setItem("ArticlesSelectedProvider", value);
+    localStorage.setItem("ArticlesSelectedProvider", id);
   };
 
   return (
