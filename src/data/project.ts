@@ -8,7 +8,7 @@ export interface Project {
   linkText: string;
 }
 
-export const PROJECTS: Project[] = [
+const PROJECTS: Project[] = [
   {
     id: "1",
     title: "Technical Documentation Page",
@@ -64,3 +64,5 @@ export const PROJECTS: Project[] = [
     linkText: "GitHub",
   },
 ];
+
+export default PROJECTS;

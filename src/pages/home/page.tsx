@@ -1,5 +1,6 @@
-import { ProjectCard } from "./projectCards/ProjectCard";
-import { PROJECTS } from "./projectCards/data";
+import { ProjectCard } from "./ProjectCard.tsx";
+
+import PROJECTS from "@/data/project.ts";
 
 export default function HomePage() {
   return (

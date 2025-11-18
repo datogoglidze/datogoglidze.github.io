@@ -5,10 +5,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/card.tsx";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
-import type { Project } from "./data";
+
+import type { Project } from "@/data/project.ts";
 
 interface ProjectCardProps {
   project: Project;
