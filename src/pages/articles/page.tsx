@@ -36,8 +36,6 @@ export default function ArticlesPage() {
     localStorage.setItem("ArticlesSelectedProvider", value);
   };
 
-  const hasArticles = feed && feed.items.length > 0;
-
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
       <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] md:min-h-min rounded-xl p-6">
@@ -101,7 +99,7 @@ export default function ArticlesPage() {
         )}
       </div>
 
-      {!loading && !error && hasArticles && (
+      {!loading && !error && feed && feed.items.length > 0 && (
         <div className="flex flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
           <h1>That's all for now...</h1>
           <h1>Come back tomorrow</h1>
