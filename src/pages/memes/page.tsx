@@ -12,7 +12,7 @@ export default function MemesPage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-      <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] md:min-h-min rounded-xl p-6">
+      <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] md:min-h-min rounded-xl p-6 pt-4">
         <div className="grid auto-rows-min gap-4 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7">
           {memes.map((num) => (
             <Dialog key={num}>
