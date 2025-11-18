@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
 import type { RSSFeedItem, RSSFeedProvider } from "./types";
-import { RSS_FEED_PROVIDERS } from "./data";
 import {
   Card,
   CardHeader,
@@ -24,6 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator.tsx";
+import RSS_PROVIDERS from "@/data/rssProviders.ts";
 
 const SKELETON_COUNT = 3;
 
@@ -114,19 +114,17 @@ export default function ArticlesPage() {
     () => {
       const stored = localStorage.getItem("ArticlesSelectedProvider");
       if (stored) {
-        const provider = RSS_FEED_PROVIDERS.find(
-          (p) => p.id === Number(stored),
-        );
+        const provider = RSS_PROVIDERS.find((p) => p.id === Number(stored));
         if (provider) return provider;
       }
-      return RSS_FEED_PROVIDERS[0];
+      return RSS_PROVIDERS[0];
     },
   );
 
   const { feed, loading, error } = useRSSFeed(selectedProvider.url);
 
   const handleProviderChange = (value: string) => {
-    const provider = RSS_FEED_PROVIDERS.find((p) => p.id === Number(value))!;
+    const provider = RSS_PROVIDERS.find((p) => p.id === Number(value))!;
     setSelectedProvider(provider);
     localStorage.setItem("ArticlesSelectedProvider", value);
   };
@@ -149,7 +147,7 @@ export default function ArticlesPage() {
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>News</SelectLabel>
-                {RSS_FEED_PROVIDERS.filter(
+                {RSS_PROVIDERS.filter(
                   (provider) => provider.type === "news",
                 ).map((provider) => (
                   <SelectItem key={provider.id} value={String(provider.id)}>
@@ -162,7 +160,7 @@ export default function ArticlesPage() {
 
               <SelectGroup>
                 <SelectLabel>Articles</SelectLabel>
-                {RSS_FEED_PROVIDERS.filter(
+                {RSS_PROVIDERS.filter(
                   (provider) => provider.type === "articles",
                 ).map((provider) => (
                   <SelectItem key={provider.id} value={String(provider.id)}>

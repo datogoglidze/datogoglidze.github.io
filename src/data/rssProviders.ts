@@ -1,6 +1,6 @@
-import type { RSSFeedProvider } from "./types";
+import type { RSSFeedProvider } from "@/pages/articles/types.ts";
 
-export const RSS_FEED_PROVIDERS: RSSFeedProvider[] = [
+const RSS_PROVIDERS: RSSFeedProvider[] = [
   {
     id: 1,
     name: "IGN Articles",
@@ -62,3 +62,5 @@ export const RSS_FEED_PROVIDERS: RSSFeedProvider[] = [
     type: "articles",
   },
 ];
+
+export default RSS_PROVIDERS;
