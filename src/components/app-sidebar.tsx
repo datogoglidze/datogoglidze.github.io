@@ -1,14 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import {
-  Home,
-  GraduationCap,
-  Newspaper,
-  Laugh,
-  Twitter,
-  Linkedin,
-  Github,
-  Mail,
-} from "lucide-react";
+import { Home, GraduationCap, Newspaper, Laugh } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -21,6 +12,7 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
+import getContacts from "@/data/contact.ts";
 
 const items = [
   {
@@ -45,35 +37,9 @@ const items = [
   },
 ];
 
-const itemsSecondary = [
-  {
-    id: 1,
-    title: "schwifterpickle",
-    url: "https://x.com/schwifterpickle",
-    icon: Twitter,
-  },
-  {
-    id: 2,
-    title: "d-goglidze",
-    url: "https://www.linkedin.com/in/d-goglidze/",
-    icon: Linkedin,
-  },
-  {
-    id: 3,
-    title: "datogoglidze",
-    url: "https://github.com/datogoglidze",
-    icon: Github,
-  },
-  {
-    id: 4,
-    title: "d.goglidze22@gmail.com",
-    url: "mailto:d.goglidze22@gmail.com",
-    icon: Mail,
-  },
-];
-
 export function AppSidebar() {
   const location = useLocation();
+  const contacts = getContacts();
 
   return (
     <Sidebar variant="floating">
@@ -103,7 +69,7 @@ export function AppSidebar() {
           ))}
         </SidebarMenu>
         <SidebarMenu className="mt-auto">
-          {itemsSecondary.map((item) => (
+          {contacts.map((item) => (
             <SidebarMenuItem key={item.id}>
               <SidebarMenuButton asChild>
                 <a
