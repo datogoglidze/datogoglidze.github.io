@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import type { RSSFeed, RSSFeedItem, UseRSSFeedResult } from "./types";
+import type {
+  RSSFeed,
+  RSSFeedItem,
+  UseRSSFeedResult,
+} from "../../types/rss.ts";
 
 const CORS_PROXIES = [
   (url: string) => `https://corsproxy.io/?${encodeURIComponent(url)}`,

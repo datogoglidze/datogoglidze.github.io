@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
 import { formatDate } from "./dateFormatter";
-import type { RSSFeedItem } from "./types";
+import type { RSSFeedItem } from "../../types/rss.ts";
 import {
   Card,
   CardHeader,
