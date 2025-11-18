@@ -2,9 +2,9 @@ import { DataTable } from "@/pages/learning/DataTable.tsx";
 import { columns as courseColumns } from "@/pages/learning/courses/columns.tsx";
 import { columns as readingColumns } from "@/pages/learning/reading/columns.tsx";
 import { columns as practiceColumns } from "@/pages/learning/practices/columns.tsx";
-import getCoursesData from "@/pages/learning/courses/data.tsx";
 import getReadingsData from "@/pages/learning/reading/data.tsx";
 import getPracticesData from "@/pages/learning/practices/data.tsx";
+import getCoursesData from "@/data/course.ts";
 
 export default function LearningPage() {
   const courses = getCoursesData();

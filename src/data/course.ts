@@ -1,4 +1,10 @@
-import type { Course } from "@/pages/learning/courses/columns.tsx";
+export type Course = {
+  id: number;
+  name: string;
+  url: string;
+  languages: string[];
+  hasCertificate: boolean;
+};
 
 export default function getCoursesData(): Course[] {
   return [

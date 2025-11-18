@@ -4,14 +4,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
 import { IconCircleCheckFilled } from "@tabler/icons-react";
 import { ExternalLink } from "lucide-react";
-
-export type Course = {
-  id: number;
-  name: string;
-  url: string;
-  languages: string[];
-  hasCertificate: boolean;
-};
+import type { Course } from "@/data/course.ts";
 
 export const columns: ColumnDef<Course>[] = [
   {
