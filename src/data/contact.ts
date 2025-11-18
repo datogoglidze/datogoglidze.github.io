@@ -3,7 +3,7 @@ import * as React from "react";
 
 export interface Contact {
   id: number;
-  title: string;
+  name: string;
   url: string;
   icon: React.ElementType;
 }
@@ -12,25 +12,25 @@ export default function getContacts(): Contact[] {
   return [
     {
       id: 1,
-      title: "schwifterpickle",
+      name: "schwifterpickle",
       url: "https://x.com/schwifterpickle",
       icon: Twitter,
     },
     {
       id: 2,
-      title: "d-goglidze",
+      name: "d-goglidze",
       url: "https://www.linkedin.com/in/d-goglidze/",
       icon: Linkedin,
     },
     {
       id: 3,
-      title: "datogoglidze",
+      name: "datogoglidze",
       url: "https://github.com/datogoglidze",
       icon: Github,
     },
     {
       id: 4,
-      title: "d.goglidze22@gmail.com",
+      name: "d.goglidze22@gmail.com",
       url: "mailto:d.goglidze22@gmail.com",
       icon: Mail,
     },

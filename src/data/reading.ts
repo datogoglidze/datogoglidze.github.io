@@ -1,9 +1,9 @@
 export interface Reading {
   id: number;
-  title: string;
+  name: string;
   author: string;
   url: string;
-  urlSource: string;
+  urlName: string;
   languages: string[];
 }
 
@@ -11,18 +11,18 @@ export default function getReadings(): Reading[] {
   return [
     {
       id: 1,
-      title: "SQL Style Guide",
+      name: "SQL Style Guide",
       author: "Simon Holywel",
       url: "https://www.sqlstyle.guide/",
-      urlSource: "sqlstyle",
+      urlName: "sqlstyle",
       languages: ["SQL"],
     },
     {
       id: 2,
-      title: "Design Patterns",
+      name: "Design Patterns",
       author: "Alexander Shvets",
       url: "https://refactoring.guru/design-patterns/catalog",
-      urlSource: "Refactoring Guru",
+      urlName: "Refactoring Guru",
       languages: [
         "c#",
         "C++",
@@ -38,26 +38,26 @@ export default function getReadings(): Reading[] {
     },
     {
       id: 3,
-      title: "Python Design Patterns",
+      name: "Python Design Patterns",
       author: "Brandon Rhodes",
       url: "https://python-patterns.guide/",
-      urlSource: "python-patterns",
+      urlName: "python-patterns",
       languages: ["Python"],
     },
     {
       id: 4,
-      title: "Clean Code: A Handbook of Agile Software Craftsmanship",
+      name: "Clean Code: A Handbook of Agile Software Craftsmanship",
       author: "Robert C. Martin",
       url: "https://a.co/d/czySsBe",
-      urlSource: "Amazon",
+      urlName: "Amazon",
       languages: ["Java"],
     },
     {
       id: 5,
-      title: "The Clean Coder: A Code of Conduct for Professional Programmers",
+      name: "The Clean Coder: A Code of Conduct for Professional Programmers",
       author: "Robert C. Martin",
       url: "https://a.co/d/j2et4s8",
-      urlSource: "Amazon",
+      urlName: "Amazon",
       languages: ["Java"],
     },
   ];

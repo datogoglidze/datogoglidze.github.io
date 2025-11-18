@@ -11,7 +11,7 @@ const readings: ColumnDef<Reading>[] = [
     header: "#",
   },
   {
-    accessorKey: "title",
+    accessorKey: "name",
     header: "Title",
   },
   {
@@ -29,7 +29,7 @@ const readings: ColumnDef<Reading>[] = [
           rel="noopener noreferrer"
           className="text-primary hover:underline inline-flex items-center gap-2"
         >
-          {row.original.urlSource}
+          {row.original.urlName}
           <ExternalLink className="w-3.5 h-3.5 opacity-70" />
         </a>
       );

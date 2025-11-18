@@ -79,7 +79,7 @@ export function AppSidebar() {
                   className="hover:underline"
                 >
                   <item.icon />
-                  {item.title}
+                  {item.name}
                 </a>
               </SidebarMenuButton>
             </SidebarMenuItem>
