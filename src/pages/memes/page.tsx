@@ -17,11 +17,11 @@ export default function MemesPage() {
           {memes.map((num) => (
             <Dialog key={num}>
               <DialogTrigger asChild>
-                <div className="aspect-square overflow-hidden rounded-md bg-muted cursor-pointer hover:opacity-90 transition-opacity p-2">
+                <div className="flex justify-center aspect-square overflow-hidden rounded-md cursor-pointer bg-muted/50 hover:border card-hover-animation p-2">
                   <img
                     src={`/memes/${num}.jpg`}
                     alt={`Meme ${num}`}
-                    className="w-full h-full object-contain rounded-md"
+                    className="h-full rounded-md"
                     loading="lazy"
                   />
                 </div>
