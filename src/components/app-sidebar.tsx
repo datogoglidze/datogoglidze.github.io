@@ -46,7 +46,7 @@ export function AppSidebar() {
       variant="floating"
       className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
     >
-      <SidebarHeader className="pt-0">
+      <SidebarHeader className="py-0">
         <div className="flex items-center h-16 gap-2 font-medium text-sm">
           <Avatar>
             <AvatarImage src="/alien-300-300.jpg" alt="@shadcn" />
