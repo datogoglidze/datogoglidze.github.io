@@ -74,7 +74,7 @@ export function AppSidebar() {
         <SidebarMenu className="mt-auto">
           {contacts.map((item) => (
             <SidebarMenuItem key={item.id}>
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton asChild className="hover:bg-transparent">
                 <a
                   href={item.url.address}
                   target="_blank"
