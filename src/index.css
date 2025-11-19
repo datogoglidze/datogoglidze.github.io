@@ -123,4 +123,8 @@
   .text-pastel-blue {
     @apply text-blue-500 dark:text-blue-300;
   }
+
+  .card-hover-animation {
+    @apply transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1;
+  }
 }
