@@ -118,3 +118,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .text-pastel-blue {
+    @apply text-blue-500 dark:text-blue-300;
+  }
+}
