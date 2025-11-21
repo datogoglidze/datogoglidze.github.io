@@ -9,43 +9,41 @@ export interface Contact {
   icon: React.ElementType;
 }
 
-export default function getContacts(): Contact[] {
-  return [
-    {
-      id: 1,
-      name: "schwifterpickle",
-      url: {
-        name: "X",
-        address: "https://x.com/schwifterpickle",
-      },
-      icon: Twitter,
+export const CONTACTS: Contact[] = [
+  {
+    id: 1,
+    name: "schwifterpickle",
+    url: {
+      name: "X",
+      address: "https://x.com/schwifterpickle",
     },
-    {
-      id: 2,
-      name: "d-goglidze",
-      url: {
-        name: "LinkedIn",
-        address: "https://www.linkedin.com/in/d-goglidze/",
-      },
-      icon: Linkedin,
+    icon: Twitter,
+  },
+  {
+    id: 2,
+    name: "d-goglidze",
+    url: {
+      name: "LinkedIn",
+      address: "https://www.linkedin.com/in/d-goglidze/",
     },
-    {
-      id: 3,
-      name: "datogoglidze",
-      url: {
-        name: "GitHub",
-        address: "https://github.com/datogoglidze",
-      },
-      icon: Github,
+    icon: Linkedin,
+  },
+  {
+    id: 3,
+    name: "datogoglidze",
+    url: {
+      name: "GitHub",
+      address: "https://github.com/datogoglidze",
     },
-    {
-      id: 4,
-      name: "d.goglidze22@gmail.com",
-      url: {
-        name: "Gmail",
-        address: "mailto:d.goglidze22@gmail.com",
-      },
-      icon: Mail,
+    icon: Github,
+  },
+  {
+    id: 4,
+    name: "d.goglidze22@gmail.com",
+    url: {
+      name: "Gmail",
+      address: "mailto:d.goglidze22@gmail.com",
     },
-  ];
-}
+    icon: Mail,
+  },
+];

@@ -8,47 +8,45 @@ export interface Course {
   hasCertificate: boolean;
 }
 
-export default function getCourses(): Course[] {
-  return [
-    {
-      id: 1,
-      name: "Computer Science course CS50",
-      url: {
-        name: "Harvard",
-        address: "https://cs50.harvard.edu/x/",
-      },
-      languages: ["HTML", "CSS", "JavaScript", "Python", "SQLite", "C"],
-      hasCertificate: true,
+export const COURSES: Course[] = [
+  {
+    id: 1,
+    name: "Computer Science course CS50",
+    url: {
+      name: "Harvard",
+      address: "https://cs50.harvard.edu/x/",
     },
-    {
-      id: 2,
+    languages: ["HTML", "CSS", "JavaScript", "Python", "SQLite", "C"],
+    hasCertificate: true,
+  },
+  {
+    id: 2,
+    name: "FreeCodeCamp",
+    url: {
       name: "FreeCodeCamp",
-      url: {
-        name: "FreeCodeCamp",
-        address: "https://www.freecodecamp.org/",
-      },
-      languages: ["HTML", "CSS", "JavaScript", "Python", "C#", "SQL"],
-      hasCertificate: true,
+      address: "https://www.freecodecamp.org/",
     },
-    {
-      id: 3,
-      name: "TheCodingTrain",
-      url: {
-        name: "YouTube",
-        address: "https://www.youtube.com/@TheCodingTrain",
-      },
-      languages: ["JavaScript"],
-      hasCertificate: false,
+    languages: ["HTML", "CSS", "JavaScript", "Python", "C#", "SQL"],
+    hasCertificate: true,
+  },
+  {
+    id: 3,
+    name: "TheCodingTrain",
+    url: {
+      name: "YouTube",
+      address: "https://www.youtube.com/@TheCodingTrain",
     },
-    {
-      id: 4,
-      name: "FreeCodeCamp",
-      url: {
-        name: "YouTube",
-        address: "https://youtu.be/Uszj_k0DGsg?si=frSFjsNKnIB4KBn4",
-      },
-      languages: ["Git"],
-      hasCertificate: false,
+    languages: ["JavaScript"],
+    hasCertificate: false,
+  },
+  {
+    id: 4,
+    name: "FreeCodeCamp",
+    url: {
+      name: "YouTube",
+      address: "https://youtu.be/Uszj_k0DGsg?si=frSFjsNKnIB4KBn4",
     },
-  ];
-}
+    languages: ["Git"],
+    hasCertificate: false,
+  },
+];
