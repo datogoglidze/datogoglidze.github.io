@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Dialog,
   DialogContent,
@@ -5,10 +6,37 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Loader2 } from "lucide-react";
+
+const TOTAL_MEMES = 1080;
+const BATCH_SIZE = 20;
 
 export default function MemesPage() {
-  const totalMemes = 1080;
-  const memes = Array.from({ length: totalMemes }, (_, i) => i + 1);
+  const [loadedCount, setLoadedCount] = useState(BATCH_SIZE);
+  const observerTarget = useRef<HTMLDivElement>(null);
+
+  const memes = Array.from({ length: loadedCount }, (_, i) => i + 1);
+
+  const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {
+    const [target] = entries;
+    if (target.isIntersecting) {
+      setLoadedCount((prev) => Math.min(prev + BATCH_SIZE, TOTAL_MEMES));
+    }
+  }, []);
+
+  useEffect(() => {
+    const element = observerTarget.current;
+    const observer = new IntersectionObserver(handleObserver, {
+      threshold: 1.0,
+      rootMargin: "100px",
+    });
+
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, [handleObserver]);
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
@@ -17,20 +45,20 @@ export default function MemesPage() {
           {memes.map((num) => (
             <Dialog key={num}>
               <DialogTrigger asChild>
-                <div className="flex justify-center aspect-square overflow-hidden rounded-md cursor-pointer bg-muted/50 hover:border card-hover-animation p-2">
+                <div className="flex justify-center aspect-square overflow-hidden rounded-md cursor-pointer bg-muted/50 hover:border card-hover-animation p-2 relative group">
                   <img
                     src={`/memes/${num}.jpg`}
                     alt={`Meme ${num}`}
-                    className="h-full rounded-md"
+                    className="h-full w-full object-cover rounded-md transition-transform group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
               </DialogTrigger>
-              <DialogContent>
+              <DialogContent className="max-w-3xl w-full">
                 <DialogHeader>
-                  <DialogTitle>Meme N{num}</DialogTitle>
+                  <DialogTitle>Meme #{num}</DialogTitle>
                 </DialogHeader>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center p-2">
                   <img
                     src={`/memes/${num}.jpg`}
                     alt={`Meme ${num}`}
@@ -41,6 +69,15 @@ export default function MemesPage() {
             </Dialog>
           ))}
         </div>
+
+        {loadedCount < TOTAL_MEMES && (
+          <div
+            ref={observerTarget}
+            className="flex justify-center items-center p-8 w-full"
+          >
+            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+          </div>
+        )}
       </div>
     </div>
   );

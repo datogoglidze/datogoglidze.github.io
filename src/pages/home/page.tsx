@@ -1,9 +1,7 @@
 import { ProjectCard } from "./ProjectCard.tsx";
-import getProjects from "@/data/project.ts";
+import { PROJECTS } from "@/data/project.ts";
 
 export default function HomePage() {
-  const projects = getProjects();
-
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
       <div className="flex flex-col items-center justify-center bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] rounded-xl p-6 pt-4">
@@ -19,7 +17,7 @@ export default function HomePage() {
       <div className="bg-muted/50 flex-1 rounded-xl p-6 pt-4">
         <h1 className="text-2xl font-medium mb-4">Projects</h1>
         <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-          {projects.map((project) => (
+          {PROJECTS.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
