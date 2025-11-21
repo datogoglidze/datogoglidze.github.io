@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import type { RSSFeed, RSSFeedItem, UseRSSFeedResult } from "@/types/rss.ts";
 
 const CORS_PROXIES = [
-  (url: string) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  (url: string) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   (url: string) =>
     `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
 ] as const;
