@@ -1,7 +1,10 @@
 import { ProjectCard } from "./ProjectCard.tsx";
 import { PROJECTS } from "@/data/project.ts";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function HomePage() {
+  useDocumentTitle("Home | Schwifter");
+
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
       <div className="flex flex-col items-center justify-center bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] rounded-xl p-6 pt-4">
