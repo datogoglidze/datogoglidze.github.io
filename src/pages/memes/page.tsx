@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
   Dialog,
   DialogContent,
@@ -37,6 +38,8 @@ export default function MemesPage() {
       if (element) observer.unobserve(element);
     };
   }, [handleObserver]);
+
+  useDocumentTitle("Memes | Schwifter");
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

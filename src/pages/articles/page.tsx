@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
   Select,
   SelectContent,
@@ -34,6 +35,8 @@ export default function ArticlesPage() {
     setSelectedProvider(provider);
     localStorage.setItem("ArticlesSelectedProvider", id);
   };
+
+  useDocumentTitle("Articles | Schwifter");
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

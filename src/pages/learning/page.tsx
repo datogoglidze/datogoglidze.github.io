@@ -5,8 +5,11 @@ import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
 import { COURSES } from "@/data/course.ts";
 import { PRACTICES } from "@/data/practice.ts";
 import { READINGS } from "@/data/reading.ts";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function LearningPage() {
+  useDocumentTitle("Learning | Schwifter");
+
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
       <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
