@@ -127,4 +127,8 @@
   .card-hover-animation {
     @apply transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1;
   }
+
+  .icon-bounce {
+    @apply transition-transform duration-300 ease-out;
+  }
 }

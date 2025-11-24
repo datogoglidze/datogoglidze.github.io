@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { GraduationCap, Home, Laugh, Newspaper } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import {
   Sidebar,
   SidebarContent,
@@ -61,8 +60,8 @@ export function AppSidebar() {
                 asChild
                 isActive={location.pathname === item.url}
               >
-                <Link to={item.url}>
-                  <item.icon />
+                <Link to={item.url} className="group/item">
+                  <item.icon className="icon-bounce group-hover/item:-translate-y-1" />
                   <span>{item.title}</span>
                 </Link>
               </SidebarMenuButton>
@@ -77,9 +76,9 @@ export function AppSidebar() {
                   href={item.url.address}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="hover:underline group/contact"
                 >
-                  <item.icon />
+                  <item.icon className="icon-bounce group-hover/contact:-translate-y-1" />
                   {item.name}
                 </a>
               </SidebarMenuButton>
