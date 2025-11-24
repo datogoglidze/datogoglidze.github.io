@@ -10,7 +10,7 @@ export interface RSSFeedProvider {
 export const RSS_PROVIDERS: RSSFeedProvider[] = [
   {
     id: 1,
-    name: "IGN Articles",
+    name: "IGN",
     url: {
       name: "FeedBurner",
       address: "https://feeds.feedburner.com/ign/all",
@@ -19,7 +19,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 2,
-    name: "IGN News",
+    name: "IGN",
     url: {
       name: "FeedBurner",
       address: "https://feeds.feedburner.com/ign/news",
@@ -28,7 +28,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 3,
-    name: "PC Gamer Articles",
+    name: "PC Gamer",
     url: {
       name: "PC Gamer",
       address: "https://www.pcgamer.com/rss/",
@@ -37,7 +37,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 4,
-    name: "PC Gamer News",
+    name: "PC Gamer",
     url: {
       name: "PC Gamer",
       address: "https://www.pcgamer.com/feeds/articletype/news/",
@@ -46,7 +46,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 5,
-    name: "TechRadar Articles",
+    name: "TechRadar",
     url: {
       name: "TechRadar",
       address: "https://www.techradar.com/feeds.xml",
@@ -55,7 +55,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 6,
-    name: "TechRadar News",
+    name: "TechRadar",
     url: {
       name: "TechRadar",
       address: "https://www.techradar.com/feeds/articletype/news",
@@ -64,7 +64,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 7,
-    name: "GameSpot Articles",
+    name: "GameSpot",
     url: {
       name: "GameSpot",
       address: "https://www.gamespot.com/feeds/mashup",
@@ -73,7 +73,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 8,
-    name: "Polygon Articles",
+    name: "Polygon",
     url: {
       name: "Polygon",
       address: "https://www.polygon.com/rss/index.xml",
@@ -82,7 +82,7 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 9,
-    name: "Polygon News",
+    name: "Polygon",
     url: {
       name: "Polygon",
       address: "https://www.polygon.com/rss/news/index.xml",
@@ -91,10 +91,46 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
   },
   {
     id: 10,
-    name: "Nvidia Articles",
+    name: "Nvidia",
     url: {
       name: "Nvidia Blog",
       address: "https://blogs.nvidia.com/feed/",
+    },
+    type: "articles",
+  },
+  {
+    id: 11,
+    name: "Eurogamer",
+    url: {
+      name: "Eurogamer",
+      address: "https://www.eurogamer.net/feed/blogs",
+    },
+    type: "articles",
+  },
+  {
+    id: 12,
+    name: "Eurogamer",
+    url: {
+      name: "Eurogamer",
+      address: "https://www.eurogamer.net/feed/news",
+    },
+    type: "news",
+  },
+  {
+    id: 13,
+    name: "Rock Paper Shotgun",
+    url: {
+      name: "Rock Paper Shotgun",
+      address: "https://www.rockpapershotgun.com/feed/news",
+    },
+    type: "news",
+  },
+  {
+    id: 14,
+    name: "Siliconera",
+    url: {
+      name: "Siliconera",
+      address: "https://www.siliconera.com/feed/",
     },
     type: "articles",
   },

@@ -18,6 +18,7 @@ import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
 import { Button } from "@/components/ui/button";
 import { RefreshCw } from "lucide-react";
 import { clearFeedCache } from "@/pages/articles/rssFeedCache.ts";
+import { toUpper } from "@/lib/utils";
 
 export default function ArticlesPage() {
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
@@ -70,7 +71,7 @@ export default function ArticlesPage() {
                   (provider) => provider.type === "news"
                 ).map((provider) => (
                   <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name}
+                    {provider.name} {toUpper(provider.type)}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -83,7 +84,7 @@ export default function ArticlesPage() {
                   (provider) => provider.type === "articles"
                 ).map((provider) => (
                   <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name}
+                    {provider.name} {toUpper(provider.type)}
                   </SelectItem>
                 ))}
               </SelectGroup>
