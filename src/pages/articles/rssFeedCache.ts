@@ -14,20 +14,22 @@ function getCacheKey(feedUrl: string): string {
   return CACHE_KEY_PREFIX + encodeURIComponent(feedUrl);
 }
 
+function isCacheExpired(timestamp: number): boolean {
+  return Date.now() - timestamp >= CACHE_DURATION_MS;
+}
+
 export function getCachedFeed(feedUrl: string): RSSFeed | null {
   const cacheKey = getCacheKey(feedUrl);
-  const memoryCached = memoryCache.get(cacheKey);
+  const cached = memoryCache.get(cacheKey);
 
-  if (memoryCached) {
-    const age_ms = Date.now() - memoryCached.timestamp;
-    if (age_ms < CACHE_DURATION_MS) {
-      return memoryCached.data;
-    } else {
-      memoryCache.delete(cacheKey);
-    }
+  if (!cached) return null;
+
+  if (isCacheExpired(cached.timestamp)) {
+    memoryCache.delete(cacheKey);
+    return null;
   }
 
-  return null;
+  return cached.data;
 }
 
 export function setCachedFeed(feedUrl: string, feed: RSSFeed): void {
