@@ -98,4 +98,40 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     },
     type: "articles",
   },
+  {
+    id: 11,
+    name: "Eurogamer Articles",
+    url: {
+      name: "Eurogamer",
+      address: "https://www.eurogamer.net/feed/blogs",
+    },
+    type: "articles",
+  },
+  {
+    id: 12,
+    name: "Eurogamer News",
+    url: {
+      name: "Eurogamer",
+      address: "https://www.eurogamer.net/feed/news",
+    },
+    type: "news",
+  },
+  {
+    id: 13,
+    name: "Rock Paper Shotgun News",
+    url: {
+      name: "Rock Paper Shotgun",
+      address: "https://www.rockpapershotgun.com/feed/news",
+    },
+    type: "news",
+  },
+  {
+    id: 14,
+    name: "Siliconera Articles",
+    url: {
+      name: "Siliconera",
+      address: "https://www.siliconera.com/feed/",
+    },
+    type: "articles",
+  },
 ];
