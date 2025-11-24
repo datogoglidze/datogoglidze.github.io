@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import type { RSSFeed, RSSFeedItem, UseRSSFeedResult } from "@/types/rss.ts";
+import { getCachedFeed, setCachedFeed } from "./rssFeedCache.ts";
 
 const CORS_PROXIES = [
   (url: string) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
@@ -167,7 +168,10 @@ async function fetchRSSFeedXML(feedUrl: string): Promise<string> {
   throw lastError || new Error("All proxy attempts failed");
 }
 
-export function useRSSFeed(feedUrl: string): UseRSSFeedResult {
+export function useRSSFeed(
+  feedUrl: string,
+  refreshTrigger = 0
+): UseRSSFeedResult {
   const [feed, setFeed] = useState<RSSFeed | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -187,11 +191,23 @@ export function useRSSFeed(feedUrl: string): UseRSSFeedResult {
         setLoading(true);
         setError(null);
 
+        const cachedFeed = getCachedFeed(feedUrl);
+        if (cachedFeed) {
+          if (!isCancelled) {
+            setFeed(cachedFeed);
+            setLoading(false);
+          }
+          return;
+        }
+
         const xmlText = await fetchRSSFeedXML(feedUrl);
 
         if (isCancelled) return;
 
         const parsed = parseRSSFeed(xmlText);
+
+        setCachedFeed(feedUrl, parsed);
+
         setFeed(parsed);
       } catch (err) {
         if (isCancelled) return;
@@ -212,7 +228,7 @@ export function useRSSFeed(feedUrl: string): UseRSSFeedResult {
     return () => {
       isCancelled = true;
     };
-  }, [feedUrl]);
+  }, [feedUrl, refreshTrigger]);
 
   return { feed, loading, error };
 }
