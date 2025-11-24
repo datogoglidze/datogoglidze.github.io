@@ -96,8 +96,11 @@ export default function ArticlesPage() {
             onClick={handleRefresh}
             disabled={loading}
             title="Refresh provider"
+            className="bg-transparent"
           >
-            <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
+            <RefreshCw
+              className={`h-[1.2rem] w-[1.2rem] scale-100 ${loading ? "animate-spin" : ""}`}
+            />
           </Button>
         </div>
 
