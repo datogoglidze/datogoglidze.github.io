@@ -16,7 +16,7 @@ export default function ArticleCard({ article }: { article: RSSFeedItem }) {
   const buttonText = hasContentSnippet ? "Read More" : "Read Article";
 
   return (
-    <Card className="bg-muted/50 card-hover-animation flex flex-col">
+    <Card className="bg-muted/50 card-bounce flex flex-col">
       <CardHeader className="flex flex-1 flex-col justify-between">
         <CardTitle className="line-clamp-2">{article.title}</CardTitle>
         {article.pubDate && (
