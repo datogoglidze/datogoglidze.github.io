@@ -15,6 +15,9 @@ import { RSS_PROVIDERS, type RSSFeedProvider } from "@/data/rssProvider.ts";
 import LoadingSkeleton from "@/pages/articles/LoadingSkeleton.tsx";
 import ArticleCard from "@/pages/articles/ArticleCard.tsx";
 import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
+import { Button } from "@/components/ui/button";
+import { RefreshCw } from "lucide-react";
+import { clearFeedCache } from "@/pages/articles/rssFeedCache.ts";
 
 export default function ArticlesPage() {
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
@@ -27,13 +30,22 @@ export default function ArticlesPage() {
       return RSS_PROVIDERS[0];
     }
   );
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-  const { feed, loading, error } = useRSSFeed(selectedProvider.url.address);
+  const { feed, loading, error } = useRSSFeed(
+    selectedProvider.url.address,
+    refreshTrigger
+  );
 
   const handleProviderChange = (id: string) => {
     const provider = RSS_PROVIDERS.find((p) => p.id === Number(id))!;
     setSelectedProvider(provider);
     localStorage.setItem("ArticlesSelectedProvider", id);
+  };
+
+  const handleRefresh = () => {
+    clearFeedCache(selectedProvider.url.address);
+    setRefreshTrigger((prev) => prev + 1);
   };
 
   useDocumentTitle("Articles | Schwifter");
@@ -77,6 +89,16 @@ export default function ArticlesPage() {
               </SelectGroup>
             </SelectContent>
           </Select>
+
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={handleRefresh}
+            disabled={loading}
+            title="Refresh provider"
+          >
+            <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
+          </Button>
         </div>
 
         {loading && <LoadingSkeleton count={3} />}
