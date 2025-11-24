@@ -13,7 +13,7 @@ import type { Project } from "@/data/project.ts";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="bg-muted/50 card-hover-animation">
+    <Card className="bg-muted/50 card-bounce">
       <CardHeader>
         <CardTitle>{project.name}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
