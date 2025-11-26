@@ -1,5 +1,8 @@
 import type { RSSFeed, RSSFeedItem } from "@/types/rss";
 
+// TODO: Refactor to use a proper RSS parser library
+// TODO: Implement specific communication methods for each proxy
+
 const CORS_PROXIES = [
   (url: string) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   (url: string) =>
