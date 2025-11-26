@@ -116,8 +116,11 @@ export function parseRSS(xmlText: string): RSSFeed {
   };
 }
 
-async function fetchThroughProxy(proxyUrl: string): Promise<string> {
-  const response = await fetch(proxyUrl);
+async function fetchThroughProxy(
+  proxyUrl: string,
+  signal: AbortSignal
+): Promise<string> {
+  const response = await fetch(proxyUrl, { signal });
 
   if (!response.ok) {
     throw new Error(`Proxy returned ${response.status}`);
@@ -149,19 +152,36 @@ async function fetchThroughProxy(proxyUrl: string): Promise<string> {
   return xmlText;
 }
 
-export async function fetchRSS(feedUrl: string): Promise<string> {
+export async function fetchRSS(
+  feedUrl: string,
+  timeout = 30000
+): Promise<string> {
   let lastError: Error | null = null;
+  const timeoutSeconds = Math.floor(timeout / 1000);
 
   for (const createProxyUrl of CORS_PROXIES) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
     try {
       const proxyUrl = createProxyUrl(feedUrl);
-      return await fetchThroughProxy(proxyUrl);
+      const result = await fetchThroughProxy(proxyUrl, controller.signal);
+      clearTimeout(timeoutId);
+
+      return result;
     } catch (proxyError) {
+      clearTimeout(timeoutId);
       lastError =
         proxyError instanceof Error
           ? proxyError
           : new Error("Proxy fetch failed");
-      console.warn(`Proxy failed, trying next...`, lastError.message);
+
+      if (lastError.name === "AbortError") {
+        console.warn(`Proxy timed out after ${timeoutSeconds}s`);
+        lastError = new Error(`Request timed out after ${timeoutSeconds}s`);
+      } else {
+        console.warn(`Proxy failed, trying next...`, lastError.message);
+      }
     }
   }
 
