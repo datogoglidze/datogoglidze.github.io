@@ -1,13 +1,5 @@
 import type { RSSFeed, RSSFeedItem } from "@/types/rss";
-
-// TODO: Refactor to use a proper RSS parser library
-// TODO: Implement specific communication methods for each proxy
-
-const CORS_PROXIES = [
-  (url: string) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
-  (url: string) =>
-    `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
-] as const;
+import { fetchThroughProxies } from "@/pages/articles/proxies";
 
 const CONTENT_SNIPPET_LENGTH = 200;
 
@@ -119,74 +111,15 @@ export function parseRSS(xmlText: string): RSSFeed {
   };
 }
 
-async function fetchThroughProxy(
-  proxyUrl: string,
-  signal: AbortSignal
+export async function fetchRSS(
+  feedUrl: string,
+  timeout = 30000
 ): Promise<string> {
-  const response = await fetch(proxyUrl, { signal });
-
-  if (!response.ok) {
-    throw new Error(`Proxy returned ${response.status}`);
-  }
-
-  const contentType = response.headers.get("content-type") || "";
-  let xmlText: string;
-
-  if (contentType.includes("application/json")) {
-    const proxyData = await response.json();
-
-    if (!proxyData.contents) {
-      throw new Error("Unexpected proxy JSON response format");
-    }
-
-    if (proxyData.status?.http_code && proxyData.status.http_code !== 200) {
-      throw new Error(`Feed returned ${proxyData.status.http_code}`);
-    }
-
-    xmlText = proxyData.contents;
-  } else {
-    xmlText = await response.text();
-  }
+  const xmlText = await fetchThroughProxies(feedUrl, timeout);
 
   if (!xmlText?.trim().startsWith("<")) {
     throw new Error("Proxy response is not XML format");
   }
 
   return xmlText;
-}
-
-export async function fetchRSS(
-  feedUrl: string,
-  timeout = 30000
-): Promise<string> {
-  let lastError: Error | null = null;
-  const timeoutSeconds = Math.floor(timeout / 1000);
-
-  for (const createProxyUrl of CORS_PROXIES) {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
-
-    try {
-      const proxyUrl = createProxyUrl(feedUrl);
-      const result = await fetchThroughProxy(proxyUrl, controller.signal);
-      clearTimeout(timeoutId);
-
-      return result;
-    } catch (proxyError) {
-      clearTimeout(timeoutId);
-      lastError =
-        proxyError instanceof Error
-          ? proxyError
-          : new Error("Proxy fetch failed");
-
-      if (lastError.name === "AbortError") {
-        console.warn(`Proxy timed out after ${timeoutSeconds}s`);
-        lastError = new Error(`Request timed out after ${timeoutSeconds}s`);
-      } else {
-        console.warn(`Proxy failed, trying next...`, lastError.message);
-      }
-    }
-  }
-
-  throw lastError || new Error("All proxy attempts failed");
 }
