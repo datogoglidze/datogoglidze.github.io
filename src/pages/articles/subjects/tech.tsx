@@ -1,34 +1,31 @@
 import { useState } from "react";
-import { useRSSFeed } from "./useRSSFeed";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { useRSSFeed } from "../useRSSFeed.ts";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle.ts";
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator.tsx";
+} from "@/components/ui/select.tsx";
 import { RSS_PROVIDERS, type RSSFeedProvider } from "@/data/rssProvider.ts";
 import LoadingSkeleton from "@/pages/articles/LoadingSkeleton.tsx";
 import ArticleCard from "@/pages/articles/ArticleCard.tsx";
 import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import { RefreshCw } from "lucide-react";
 import { clearFeedCache } from "@/pages/articles/rssFeedCache.ts";
-import { toUpper } from "@/lib/utils";
 
-export default function ArticlesPage() {
+export default function TechArticlesPage() {
   const [selectedProvider, setSelectedProvider] = useState<RSSFeedProvider>(
     () => {
-      const stored = localStorage.getItem("ArticlesSelectedProvider");
+      const stored = localStorage.getItem("TechArticlesSelectedProvider");
       if (stored) {
         const provider = RSS_PROVIDERS.find((p) => p.id === Number(stored));
         if (provider) return provider;
       }
-      return RSS_PROVIDERS[0];
+      return RSS_PROVIDERS.find((p) => p.subject === "tech")!;
     }
   );
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -41,7 +38,7 @@ export default function ArticlesPage() {
   const handleProviderChange = (id: string) => {
     const provider = RSS_PROVIDERS.find((p) => p.id === Number(id))!;
     setSelectedProvider(provider);
-    localStorage.setItem("ArticlesSelectedProvider", id);
+    localStorage.setItem("TechArticlesSelectedProvider", id);
   };
 
   const handleRefresh = () => {
@@ -66,25 +63,11 @@ export default function ArticlesPage() {
 
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>News</SelectLabel>
                 {RSS_PROVIDERS.filter(
-                  (provider) => provider.type === "news"
+                  (provider) => provider.subject === "tech"
                 ).map((provider) => (
                   <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name} {toUpper(provider.type)}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-
-              <Separator orientation="horizontal" className="my-2" />
-
-              <SelectGroup>
-                <SelectLabel>Articles</SelectLabel>
-                {RSS_PROVIDERS.filter(
-                  (provider) => provider.type === "articles"
-                ).map((provider) => (
-                  <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name} {toUpper(provider.type)}
+                    {provider.name}
                   </SelectItem>
                 ))}
               </SelectGroup>

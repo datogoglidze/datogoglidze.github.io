@@ -7,8 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import RootLayout from "@/pages/RootLayout.tsx";
 import HomePage from "@/pages/home/page";
 import LearningPage from "@/pages/learning/page";
-import ArticlesPage from "@/pages/articles/page";
+import GamingArticlesPage from "@/pages/articles/subjects/gaming.tsx";
 import MemesPage from "@/pages/memes/page";
+import TechArticlesPage from "@/pages/articles/subjects/tech.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,12 @@ const router = createBrowserRouter([
         element: <LearningPage />,
       },
       {
-        path: "articles",
-        element: <ArticlesPage />,
+        path: "gaming",
+        element: <GamingArticlesPage />,
+      },
+      {
+        path: "tech",
+        element: <TechArticlesPage />,
       },
       {
         path: "memes",

@@ -1,5 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { GraduationCap, Home, Laugh, Newspaper } from "lucide-react";
+import {
+  ChevronRight,
+  GraduationCap,
+  Home,
+  Laugh,
+  Newspaper,
+} from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -10,7 +16,15 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { CONTACTS } from "@/data/contact.ts";
 
 const items = [
@@ -26,8 +40,18 @@ const items = [
   },
   {
     title: "Articles",
-    url: "/articles",
     icon: Newspaper,
+    isActive: true,
+    items: [
+      {
+        title: "Gaming",
+        url: "/gaming",
+      },
+      {
+        title: "Tech",
+        url: "/tech",
+      },
+    ],
   },
   {
     title: "Memes",
@@ -54,19 +78,54 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton
+          {items.map((item) =>
+            item.items ? (
+              <Collapsible
+                key={item.title}
                 asChild
-                isActive={location.pathname === item.url}
+                defaultOpen={item.isActive}
+                className="group/collapsible"
               >
-                <Link to={item.url} className="group/item">
-                  <item.icon className="icon-bounce group-hover/item:-translate-y-1" />
-                  <span>{item.title}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton tooltip={item.title}>
+                      {item.icon && <item.icon />}
+                      <span>{item.title}</span>
+                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {item.items.map((subItem) => (
+                        <SidebarMenuSubItem key={subItem.title}>
+                          <SidebarMenuSubButton
+                            asChild
+                            isActive={location.pathname === subItem.url}
+                          >
+                            <a href={subItem.url}>
+                              <span>{subItem.title}</span>
+                            </a>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+            ) : (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={location.pathname === item.url}
+                >
+                  <Link to={item.url} className="group/item">
+                    <item.icon className="icon-bounce group-hover/item:-translate-y-1" />
+                    <span>{item.title}</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            )
+          )}
         </SidebarMenu>
         <SidebarMenu className="mt-auto">
           {CONTACTS.map((item) => (
