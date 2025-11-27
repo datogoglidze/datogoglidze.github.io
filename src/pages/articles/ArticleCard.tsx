@@ -17,7 +17,10 @@ export default function ArticleCard({ article }: { article: RSSFeedItem }) {
 
   return (
     <Card className="bg-muted/50 card-bounce flex flex-col">
-      <CardHeader className="flex flex-1 flex-col justify-between">
+      <CardHeader
+        className="flex flex-1 flex-col justify-between"
+        title={article.title}
+      >
         <CardTitle className="line-clamp-2">{article.title}</CardTitle>
         {article.pubDate && (
           <CardDescription className="flex items-center gap-1 text-xs">
@@ -37,7 +40,7 @@ export default function ArticleCard({ article }: { article: RSSFeedItem }) {
         )}
       </CardContent>
       {hasContentSnippet && (
-        <CardContent className="flex-1">
+        <CardContent className="flex-1" title={article.contentSnippet}>
           <p className="text-sm text-muted-foreground line-clamp-3">
             {article.contentSnippet}
           </p>

@@ -116,4 +116,67 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     },
     subject: "gaming",
   },
+  {
+    id: 13,
+    name: "Steam",
+    url: {
+      name: "Steam",
+      address: "https://store.steampowered.com/feeds/news/",
+    },
+    subject: "gaming",
+  },
+  {
+    id: 14,
+    name: "Android Authority",
+    url: {
+      name: "Android Authority",
+      address: "https://androidauthority.com/news/feed",
+    },
+    subject: "tech",
+  },
+  {
+    id: 15,
+    name: "Google",
+    url: {
+      name: "Google blog",
+      address: "https://blog.google/rss/",
+    },
+    subject: "tech",
+  },
+  {
+    id: 16,
+    name: "Google Research",
+    url: {
+      name: "Google research",
+      address: "https://research.google/blog/rss",
+    },
+    subject: "tech",
+  },
+  {
+    id: 17,
+    name: "Game Rant",
+    url: {
+      name: "Game Rant",
+      address: "https://gamerant.com/feed/gaming",
+    },
+    subject: "gaming",
+  },
+  {
+    id: 18,
+    name: "GamesRadar+",
+    url: {
+      name: "GamesRadar",
+      address: "https://www.gamesradar.com/feeds/tag/games/",
+    },
+    subject: "gaming",
+  },
+  {
+    id: 19,
+    name: "GamesRadar+",
+    url: {
+      name: "GamesRadar",
+      address: "https://www.gamesradar.com/feeds/tag/hardware/",
+    },
+    subject: "tech",
+  },
 ];
