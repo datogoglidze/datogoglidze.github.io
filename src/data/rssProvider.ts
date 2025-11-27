@@ -152,4 +152,31 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     },
     subject: "tech",
   },
+  {
+    id: 17,
+    name: "Game Rant",
+    url: {
+      name: "Game Rant",
+      address: "https://gamerant.com/feed/gaming",
+    },
+    subject: "gaming",
+  },
+  {
+    id: 18,
+    name: "GamesRadar+",
+    url: {
+      name: "GamesRadar",
+      address: "https://www.gamesradar.com/feeds/tag/games/",
+    },
+    subject: "gaming",
+  },
+  {
+    id: 19,
+    name: "GamesRadar+",
+    url: {
+      name: "GamesRadar",
+      address: "https://www.gamesradar.com/feeds/tag/hardware/",
+    },
+    subject: "tech",
+  },
 ];
