@@ -134,4 +134,22 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     },
     subject: "tech",
   },
+  {
+    id: 15,
+    name: "Google",
+    url: {
+      name: "Google blog",
+      address: "https://blog.google/rss/",
+    },
+    subject: "tech",
+  },
+  {
+    id: 16,
+    name: "Google Research",
+    url: {
+      name: "Google research",
+      address: "https://research.google/blog/rss",
+    },
+    subject: "tech",
+  },
 ];
