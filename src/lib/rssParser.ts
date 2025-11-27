@@ -1,7 +1,12 @@
 import type { RSSFeed, RSSFeedItem } from "@/types/rss";
-import { fetchThroughProxies } from "@/pages/articles/proxies";
+import { fetchViaCorsProxy } from "@/lib/proxies/corsproxy";
+import { fetchViaWhateverOrigin } from "@/lib/proxies/whateverorigin";
 
 const CONTENT_SNIPPET_LENGTH = 200;
+
+type ProxyFetcher = (url: string, signal: AbortSignal) => Promise<string>;
+
+const PROXIES: ProxyFetcher[] = [fetchViaCorsProxy, fetchViaWhateverOrigin];
 
 function getTextContent(element: Element | null, tagName: string): string {
   const el = element?.querySelector(tagName);
@@ -115,11 +120,27 @@ export async function fetchRSS(
   feedUrl: string,
   timeout = 30000
 ): Promise<string> {
-  const xmlText = await fetchThroughProxies(feedUrl, timeout);
+  let lastError: Error = new Error("No proxies available");
 
-  if (!xmlText?.trim().startsWith("<")) {
-    throw new Error("Proxy response is not XML format");
+  for (const fetchViaProxy of PROXIES) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+    try {
+      const content = await fetchViaProxy(feedUrl, controller.signal);
+
+      if (!content?.trim().startsWith("<")) {
+        lastError = new Error("Response is not XML format");
+        continue;
+      }
+
+      return content;
+    } catch (error) {
+      lastError = error as Error;
+    } finally {
+      clearTimeout(timeoutId);
+    }
   }
 
-  return xmlText;
+  throw lastError;
 }
