@@ -116,4 +116,13 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     },
     subject: "gaming",
   },
+  {
+    id: 13,
+    name: "Steam",
+    url: {
+      name: "Steam",
+      address: "https://store.steampowered.com/feeds/news/",
+    },
+    subject: "gaming",
+  },
 ];
