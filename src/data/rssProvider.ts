@@ -4,7 +4,7 @@ export interface RSSFeedProvider {
   id: number;
   name: string;
   url: Url;
-  type: "articles" | "news";
+  subject: "gaming" | "tech";
 }
 
 export const RSS_PROVIDERS: RSSFeedProvider[] = [
@@ -13,125 +13,107 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     name: "IGN",
     url: {
       name: "FeedBurner",
-      address: "https://feeds.feedburner.com/ign/all",
+      address: "https://feeds.feedburner.com/ign/games-all",
     },
-    type: "articles",
+    subject: "gaming",
   },
   {
     id: 2,
     name: "IGN",
     url: {
       name: "FeedBurner",
-      address: "https://feeds.feedburner.com/ign/news",
+      address: "https://feeds.feedburner.com/ign/tech-articles",
     },
-    type: "news",
+    subject: "tech",
   },
   {
     id: 3,
     name: "PC Gamer",
     url: {
       name: "PC Gamer",
-      address: "https://www.pcgamer.com/rss/",
+      address: "https://pcgamer.com/feeds/tag/games",
     },
-    type: "articles",
+    subject: "gaming",
   },
   {
     id: 4,
     name: "PC Gamer",
     url: {
       name: "PC Gamer",
-      address: "https://www.pcgamer.com/feeds/articletype/news/",
+      address: "https://pcgamer.com/feeds/tag/hardware",
     },
-    type: "news",
+    subject: "tech",
   },
   {
     id: 5,
     name: "TechRadar",
     url: {
       name: "TechRadar",
-      address: "https://www.techradar.com/feeds.xml",
+      address: "https://www.techradar.com/feeds/tag/gaming",
     },
-    type: "articles",
+    subject: "gaming",
   },
   {
     id: 6,
     name: "TechRadar",
     url: {
       name: "TechRadar",
-      address: "https://www.techradar.com/feeds/articletype/news",
+      address: "https://www.techradar.com/feeds.xml",
     },
-    type: "news",
+    subject: "tech",
   },
   {
     id: 7,
     name: "GameSpot",
     url: {
       name: "GameSpot",
-      address: "https://www.gamespot.com/feeds/mashup",
+      address: "https://www.gamespot.com/feeds/game-news",
     },
-    type: "articles",
+    subject: "gaming",
   },
   {
     id: 8,
     name: "Polygon",
     url: {
       name: "Polygon",
-      address: "https://www.polygon.com/rss/index.xml",
+      address: "https://www.polygon.com/rss/gaming/index.xml",
     },
-    type: "articles",
+    subject: "gaming",
   },
   {
     id: 9,
-    name: "Polygon",
-    url: {
-      name: "Polygon",
-      address: "https://www.polygon.com/rss/news/index.xml",
-    },
-    type: "news",
-  },
-  {
-    id: 10,
     name: "Nvidia",
     url: {
       name: "Nvidia Blog",
       address: "https://blogs.nvidia.com/feed/",
     },
-    type: "articles",
+    subject: "tech",
+  },
+  {
+    id: 10,
+    name: "Eurogamer",
+    url: {
+      name: "Eurogamer",
+      address: "https://www.eurogamer.net/feed",
+    },
+    subject: "gaming",
   },
   {
     id: 11,
-    name: "Eurogamer",
-    url: {
-      name: "Eurogamer",
-      address: "https://www.eurogamer.net/feed/blogs",
-    },
-    type: "articles",
-  },
-  {
-    id: 12,
-    name: "Eurogamer",
-    url: {
-      name: "Eurogamer",
-      address: "https://www.eurogamer.net/feed/news",
-    },
-    type: "news",
-  },
-  {
-    id: 13,
     name: "Rock Paper Shotgun",
     url: {
       name: "Rock Paper Shotgun",
       address: "https://www.rockpapershotgun.com/feed/news",
     },
-    type: "news",
+    subject: "gaming",
   },
   {
-    id: 14,
+    id: 12,
     name: "Siliconera",
     url: {
       name: "Siliconera",
       address: "https://www.siliconera.com/feed/",
     },
-    type: "articles",
+    subject: "gaming",
   },
 ];
