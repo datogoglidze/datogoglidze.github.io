@@ -2,7 +2,7 @@ import type { RSSFeed, RSSFeedItem } from "@/types/rss";
 import { fetchViaCorsProxy } from "@/lib/proxies/corsproxy";
 import { fetchViaWhateverOrigin } from "@/lib/proxies/whateverorigin";
 
-const CONTENT_SNIPPET_LENGTH = 200;
+const CONTENT_SNIPPET_LENGTH = 300;
 
 type ProxyFetcher = (url: string, signal: AbortSignal) => Promise<string>;
 
