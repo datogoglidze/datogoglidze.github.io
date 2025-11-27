@@ -6,10 +6,10 @@ export async function fetchViaWhateverOrigin(
   const response = await fetch(proxyUrl, { signal });
 
   if (!response.ok) {
-    throw new Error(`WhateverOrigin failed: ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
   }
 
   const data = await response.json();
 
-  return data.contents.text();
+  return data.contents;
 }

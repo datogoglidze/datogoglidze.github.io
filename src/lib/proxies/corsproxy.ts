@@ -6,7 +6,7 @@ export async function fetchViaCorsProxy(
   const response = await fetch(proxyUrl, { signal });
 
   if (!response.ok) {
-    throw new Error(`CorsProxy failed: ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
   }
 
   return response.text();
