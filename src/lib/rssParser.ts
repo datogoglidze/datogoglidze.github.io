@@ -32,8 +32,11 @@ function extractThumbnail(
 
   const mediaContent = item.querySelector("media\\:content, content");
   if (mediaContent) {
-    const contentType = mediaContent.getAttribute("type") || "";
-    if (contentType.startsWith("image/")) {
+    const contentType =
+      mediaContent.getAttribute("type") ||
+      mediaContent.getAttribute("medium") ||
+      "";
+    if (contentType.startsWith("image")) {
       const url = mediaContent.getAttribute("url");
       if (url) return url;
     }
@@ -42,7 +45,7 @@ function extractThumbnail(
   const enclosure = item.querySelector("enclosure");
   if (enclosure) {
     const enclosureType = enclosure.getAttribute("type") || "";
-    if (enclosureType.startsWith("image/")) {
+    if (enclosureType.startsWith("image")) {
       const url = enclosure.getAttribute("url");
       if (url) return url;
     }

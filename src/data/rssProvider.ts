@@ -125,4 +125,13 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
     },
     subject: "gaming",
   },
+  {
+    id: 14,
+    name: "Android Authority",
+    url: {
+      name: "Android Authority",
+      address: "https://androidauthority.com/news/feed",
+    },
+    subject: "tech",
+  },
 ];
