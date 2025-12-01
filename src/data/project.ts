@@ -63,6 +63,20 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 5,
+    name: "CS50x: Intranet",
+    description:
+      "Manage company-wide communications between employees and administrators",
+    image: {
+      name: "Note on a wall",
+      source: "/main-page/intranet.jpg",
+    },
+    url: {
+      name: "GitHub",
+      address: "https://github.com/datogoglidze/cs50x-intranet.git",
+    },
+  },
+  {
+    id: 6,
     name: "Bloknot: Front",
     description: "Manage basic notes",
     image: {
@@ -75,7 +89,7 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    id: 6,
+    id: 7,
     name: "Bloknot: Back",
     description: "Manage basic notes",
     image: {
