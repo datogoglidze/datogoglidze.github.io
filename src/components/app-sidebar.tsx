@@ -51,6 +51,10 @@ const items = [
         title: "Tech",
         url: "/tech",
       },
+      {
+        title: "Finance",
+        url: "/finance",
+      },
     ],
   },
   {

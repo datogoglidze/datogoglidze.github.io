@@ -32,14 +32,8 @@ function extractThumbnail(
 
   const mediaContent = item.querySelector("media\\:content, content");
   if (mediaContent) {
-    const contentType =
-      mediaContent.getAttribute("type") ||
-      mediaContent.getAttribute("medium") ||
-      "";
-    if (contentType.startsWith("image")) {
-      const url = mediaContent.getAttribute("url");
-      if (url) return url;
-    }
+    const url = mediaContent.getAttribute("url");
+    if (url) return url;
   }
 
   const enclosure = item.querySelector("enclosure");

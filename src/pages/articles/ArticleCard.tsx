@@ -29,7 +29,7 @@ export default function ArticleCard({ article }: { article: RSSFeedItem }) {
           </CardDescription>
         )}
       </CardHeader>
-      <CardContent>
+      <CardContent className="justify-items-center">
         {article.thumbnail && (
           <img
             src={article.thumbnail}

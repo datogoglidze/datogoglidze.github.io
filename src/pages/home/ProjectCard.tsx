@@ -18,7 +18,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <CardTitle>{project.name}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-1 items-end">
+      <CardContent className="flex flex-1 items-end justify-center">
         <img
           src={project.image.source}
           className="rounded-md"

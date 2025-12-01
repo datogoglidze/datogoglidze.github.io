@@ -4,7 +4,7 @@ export interface RSSFeedProvider {
   id: number;
   name: string;
   url: Url;
-  subject: "gaming" | "tech";
+  subject: "gaming" | "tech" | "finance";
 }
 
 export const RSS_PROVIDERS: RSSFeedProvider[] = [
@@ -178,5 +178,95 @@ export const RSS_PROVIDERS: RSSFeedProvider[] = [
       address: "https://www.gamesradar.com/feeds/tag/hardware/",
     },
     subject: "tech",
+  },
+  {
+    id: 20,
+    name: "Bloomberg",
+    url: {
+      name: "bloomberg",
+      address: "https://feeds.bloomberg.com/technology/news.rss",
+    },
+    subject: "tech",
+  },
+  {
+    id: 21,
+    name: "Bloomberg Markets",
+    url: {
+      name: "bloomberg",
+      address: "https://feeds.bloomberg.com/markets/news.rss",
+    },
+    subject: "finance",
+  },
+  {
+    id: 22,
+    name: "Bloomberg Economics",
+    url: {
+      name: "bloomberg",
+      address: "https://feeds.bloomberg.com/economics/news.rss",
+    },
+    subject: "finance",
+  },
+  {
+    id: 23,
+    name: "Bloomberg Business",
+    url: {
+      name: "bloomberg",
+      address: "https://feeds.bloomberg.com/business/news.rss",
+    },
+    subject: "finance",
+  },
+  {
+    id: 24,
+    name: "Financial Times",
+    url: {
+      name: "Financial Times",
+      address: "https://www.ft.com/rss/home",
+    },
+    subject: "finance",
+  },
+  {
+    id: 25,
+    name: "The Wall Street Journal",
+    url: {
+      name: "dowjones",
+      address: "https://feeds.content.dowjones.io/public/rss/socialeconomyfeed",
+    },
+    subject: "finance",
+  },
+  {
+    id: 26,
+    name: "Yahoo",
+    url: {
+      name: "yahoo",
+      address: "https://finance.yahoo.com/news/rssindex",
+    },
+    subject: "finance",
+  },
+  {
+    id: 27,
+    name: "BBC",
+    url: {
+      name: "bbc",
+      address: "https://feeds.bbci.co.uk/news/business/rss.xml",
+    },
+    subject: "finance",
+  },
+  {
+    id: 28,
+    name: "BBC",
+    url: {
+      name: "bbc",
+      address: "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    },
+    subject: "tech",
+  },
+  {
+    id: 29,
+    name: "Finance Asia",
+    url: {
+      name: "financeasia",
+      address: "https://www.financeasia.com/rss/latest",
+    },
+    subject: "finance",
   },
 ];

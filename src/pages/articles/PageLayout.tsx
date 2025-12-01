@@ -18,7 +18,7 @@ import { RefreshCw } from "lucide-react";
 import { clearFeedCache } from "@/pages/articles/rssFeedCache.ts";
 
 interface SubjectArticlesPageProps {
-  subject: "gaming" | "tech";
+  subject: "gaming" | "tech" | "finance";
 }
 
 export default function PageLayout({ subject }: SubjectArticlesPageProps) {
@@ -61,7 +61,7 @@ export default function PageLayout({ subject }: SubjectArticlesPageProps) {
             value={String(selectedProvider.id)}
             onValueChange={handleProviderChange}
           >
-            <SelectTrigger className="w-[170px]">
+            <SelectTrigger className="max-w-[140px] sm:max-w-[200px]">
               <SelectValue placeholder="Select provider" />
             </SelectTrigger>
 
