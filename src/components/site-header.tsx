@@ -8,6 +8,8 @@ const routeTitles: Record<string, string> = {
   "/learning": "Learning",
   "/articles": "Articles",
   "/memes": "Memes",
+  "/gaming": "Gaming",
+  "/tech": "Tech",
 };
 
 export function SiteHeader() {
