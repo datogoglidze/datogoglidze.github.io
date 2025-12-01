@@ -30,7 +30,7 @@ const practices: ColumnDef<Practice>[] = [
     header: "Languages",
     cell: ({ row }) => {
       return (
-        <div className="flex flex-wrap gap-1">
+        <div className="flex gap-1">
           {row.original.languages.map((language: string, index: number) => (
             <Badge key={index} variant="outline" className="px-1.5">
               {language}
