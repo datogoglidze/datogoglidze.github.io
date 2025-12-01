@@ -10,6 +10,7 @@ const routeTitles: Record<string, string> = {
   "/memes": "Memes",
   "/gaming": "Gaming",
   "/tech": "Tech",
+  "/finance": "Finance",
 };
 
 export function SiteHeader() {

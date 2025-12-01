@@ -10,6 +10,7 @@ import LearningPage from "@/pages/learning/page";
 import GamingArticlesPage from "@/pages/articles/subjects/gaming.tsx";
 import MemesPage from "@/pages/memes/page";
 import TechArticlesPage from "@/pages/articles/subjects/tech.tsx";
+import FinanceArticlesPage from "@/pages/articles/subjects/finance.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "tech",
         element: <TechArticlesPage />,
+      },
+      {
+        path: "finance",
+        element: <FinanceArticlesPage />,
       },
       {
         path: "memes",
