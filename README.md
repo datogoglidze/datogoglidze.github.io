@@ -1,7 +1,5 @@
 # Schwifter 👽
 
----
-
 My personal corner on the web.
 
 Built with
