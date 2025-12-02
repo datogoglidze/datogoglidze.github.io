@@ -10,6 +10,7 @@ import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
 
 import type { Project } from "@/data/project.ts";
+import { sendEventToGoogle } from "@/lib/utils.ts";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -32,6 +33,9 @@ export function ProjectCard({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2"
+            onClick={() =>
+              sendEventToGoogle("project_click", { project_name: project.name })
+            }
           >
             {project.url.name}
             <ExternalLink className="h-3 w-3" />
