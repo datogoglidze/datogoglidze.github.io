@@ -11,6 +11,7 @@ const routeTitles: Record<string, string> = {
   "/gaming": "Gaming",
   "/tech": "Tech",
   "/finance": "Finance",
+  "/music": "Music",
 };
 
 export function SiteHeader() {
