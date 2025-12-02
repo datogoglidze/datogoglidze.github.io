@@ -145,7 +145,7 @@ export function AppSidebar() {
                   rel="noopener noreferrer"
                   className="hover:underline group/contact"
                   onClick={() =>
-                    sendEventToGoogle("social_click", { platform: item.name })
+                    sendEventToGoogle("social_click", { platform: item.url.name })
                   }
                 >
                   <item.icon className="icon-bounce group-hover/contact:-translate-y-1" />
