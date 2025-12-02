@@ -67,7 +67,7 @@ export const PROJECTS: Project[] = [
     description:
       "Manage company-wide communications between employees and administrators",
     image: {
-      name: "Note on a wall",
+      name: "Office",
       source: "/main-page/intranet.jpg",
     },
     url: {
