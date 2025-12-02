@@ -16,6 +16,7 @@ import ErrorMessage from "@/pages/articles/ErrorMessage.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { RefreshCw } from "lucide-react";
 import { clearFeedCache } from "@/pages/articles/rssFeedCache.ts";
+import { sendEventToGoogle } from "@/lib/utils.ts";
 
 interface SubjectArticlesPageProps {
   subject: "gaming" | "tech" | "finance";
@@ -42,6 +43,10 @@ export default function PageLayout({ subject }: SubjectArticlesPageProps) {
   const handleProviderChange = (id: string) => {
     const provider = RSS_PROVIDERS.find((p) => p.id === Number(id))!;
     setSelectedProvider(provider);
+    sendEventToGoogle("article_provider_click", {
+      provider_name: provider.name,
+      provider_subject: provider.subject,
+    });
     localStorage.setItem(`${subject}ArticlesSelectedProvider`, id);
   };
 
