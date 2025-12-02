@@ -4,6 +4,7 @@ import {
   GraduationCap,
   Home,
   Laugh,
+  MusicIcon,
   Newspaper,
 } from "lucide-react";
 
@@ -62,6 +63,11 @@ const items = [
     title: "Memes",
     url: "/memes",
     icon: Laugh,
+  },
+  {
+    title: "Music",
+    url: "/music",
+    icon: MusicIcon,
   },
 ];
 
