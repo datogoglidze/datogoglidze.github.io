@@ -26,6 +26,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { CONTACTS } from "@/data/contact.ts";
+import { sendEventToGoogle } from "@/lib/utils.ts";
 
 const items = [
   {
@@ -143,6 +144,9 @@ export function AppSidebar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline group/contact"
+                  onClick={() =>
+                    sendEventToGoogle("social_click", { platform: item.name })
+                  }
                 >
                   <item.icon className="icon-bounce group-hover/contact:-translate-y-1" />
                   {item.name}
