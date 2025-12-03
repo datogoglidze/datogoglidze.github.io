@@ -21,7 +21,7 @@ export const COURSES: Course[] = [
   },
   {
     id: 2,
-    name: "FreeCodeCamp",
+    name: "FreeCodeCamp Certification",
     url: {
       name: "FreeCodeCamp",
       address: "https://www.freecodecamp.org/",
@@ -41,12 +41,38 @@ export const COURSES: Course[] = [
   },
   {
     id: 4,
-    name: "FreeCodeCamp",
+    name: "FreeCodeCamp Videos",
     url: {
       name: "YouTube",
-      address: "https://youtu.be/Uszj_k0DGsg?si=frSFjsNKnIB4KBn4",
+      address: "https://www.youtube.com/@freecodecamp/courses",
     },
-    languages: ["Git"],
+    languages: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Vite",
+      "Python",
+      "Django",
+      "Node",
+      "MySQL",
+      "GraphQL",
+      "Git",
+      "Docker",
+      "Firebase",
+      "Nginx",
+      "Redis",
+    ],
+    hasCertificate: false,
+  },
+  {
+    id: 5,
+    name: "ArjanCodes",
+    url: {
+      name: "YouTube",
+      address:
+        "https://youtube.com/playlist?list=PLC0nd42SBTaNf0bVJVd9e2oBV-mcUuxS0&si=rDBOl0CWwNrSwd7r",
+    },
+    languages: ["Python"],
     hasCertificate: false,
   },
 ];
