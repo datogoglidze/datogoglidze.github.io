@@ -49,4 +49,15 @@ export const COURSES: Course[] = [
     languages: ["Git"],
     hasCertificate: false,
   },
+  {
+    id: 5,
+    name: "ArjanCodes",
+    url: {
+      name: "YouTube",
+      address:
+        "https://youtube.com/playlist?list=PLC0nd42SBTaNf0bVJVd9e2oBV-mcUuxS0&si=rDBOl0CWwNrSwd7r",
+    },
+    languages: ["Python"],
+    hasCertificate: false,
+  },
 ];
