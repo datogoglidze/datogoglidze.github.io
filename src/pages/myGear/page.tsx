@@ -1,6 +1,6 @@
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import hardwareColumns from "@/pages/myGear/hardwareColumns.tsx";
-import { DataTable } from "@/pages/learning/DataTable.tsx";
+import { DataTable } from "@/components/data-table.tsx";
 import { HARDWARE } from "@/data/hardware.ts";
 
 export default function MyGear() {

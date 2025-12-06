@@ -1,4 +1,4 @@
-import { DataTable } from "@/pages/learning/DataTable.tsx";
+import { DataTable } from "@/components/data-table.tsx";
 import coursesColumns from "@/pages/learning/dataTableColumns/courses.tsx";
 import readingsColumns from "@/pages/learning/dataTableColumns/readings.tsx";
 import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
