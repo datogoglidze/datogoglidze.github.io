@@ -1,11 +1,11 @@
 import { DataTable } from "@/components/data-table.tsx";
-import coursesColumns from "@/pages/learning/dataTableColumns/courses.tsx";
-import readingsColumns from "@/pages/learning/dataTableColumns/readings.tsx";
-import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
 import { COURSES } from "@/data/course.ts";
 import { PRACTICES } from "@/data/practice.ts";
 import { READINGS } from "@/data/reading.ts";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import coursesColumns from "@/pages/learning/dataTableColumns/courses.tsx";
+import readingsColumns from "@/pages/learning/dataTableColumns/readings.tsx";
+import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
 
 export default function LearningPage() {
   useDocumentTitle("Learning | Schwifter");

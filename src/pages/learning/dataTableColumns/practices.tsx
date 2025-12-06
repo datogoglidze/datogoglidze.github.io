@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge.tsx";
 import { ExternalLink } from "lucide-react";
 import type { Practice } from "@/data/practice.ts";
 
-const practices: ColumnDef<Practice>[] = [
+const practicesColumns: ColumnDef<Practice>[] = [
   {
     accessorKey: "id",
     header: "#",
@@ -42,4 +42,4 @@ const practices: ColumnDef<Practice>[] = [
   },
 ];
 
-export default practices;
+export default practicesColumns;
