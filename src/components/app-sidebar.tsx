@@ -6,6 +6,7 @@ import {
   Laugh,
   MusicIcon,
   Newspaper,
+  MonitorCog,
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -68,6 +69,11 @@ const items = [
     title: "Music",
     url: "/music",
     icon: MusicIcon,
+  },
+  {
+    title: "My Gear",
+    url: "/my-gear",
+    icon: MonitorCog,
   },
 ];
 

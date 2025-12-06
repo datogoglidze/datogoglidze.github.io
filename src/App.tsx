@@ -12,6 +12,7 @@ import MemesPage from "@/pages/memes/page";
 import TechArticlesPage from "@/pages/articles/subjects/tech.tsx";
 import FinanceArticlesPage from "@/pages/articles/subjects/finance.tsx";
 import MusicPage from "@/pages/music/page.tsx";
+import MyGear from "@/pages/myGear/page.tsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "music",
         element: <MusicPage />,
+      },
+      {
+        path: "my-gear",
+        element: <MyGear />,
       },
     ],
   },
