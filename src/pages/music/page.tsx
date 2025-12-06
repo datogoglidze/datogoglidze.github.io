@@ -22,7 +22,7 @@ export default function MusicPage() {
                 <Skeleton className="absolute h-[450px] w-full rounded-lg" />
               )}
               <iframe
-                className="border border-transparent hover:border rounded-lg card-bounce relative z-10"
+                className="border hover:border rounded-lg card-bounce relative z-10"
                 src={`https://open.spotify.com/embed/playlist/${playlist.externalId}?utm_source=generator`}
                 width="100%"
                 height="450"

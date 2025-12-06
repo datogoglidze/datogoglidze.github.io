@@ -48,7 +48,7 @@ export default function MemesPage() {
           {memes.map((num) => (
             <Dialog key={num}>
               <DialogTrigger asChild>
-                <div className="flex justify-center aspect-square overflow-hidden rounded-md cursor-pointer bg-muted/50 hover:border card-bounce p-2 relative group">
+                <div className="flex justify-center aspect-square overflow-hidden rounded-md cursor-pointer bg-muted/50 shadow-sm border hover:border card-bounce p-2 relative group">
                   <img
                     src={`/memes/${num}.jpg`}
                     alt={`Meme ${num}`}
