@@ -4,7 +4,7 @@ import { IconCircleCheckFilled } from "@tabler/icons-react";
 import { ExternalLink } from "lucide-react";
 import type { Course } from "@/data/course.ts";
 
-const courses: ColumnDef<Course>[] = [
+const coursesColumns: ColumnDef<Course>[] = [
   {
     accessorKey: "id",
     header: "#",
@@ -56,4 +56,4 @@ const courses: ColumnDef<Course>[] = [
   },
 ];
 
-export default courses;
+export default coursesColumns;

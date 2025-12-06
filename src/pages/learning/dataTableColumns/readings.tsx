@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge.tsx";
 import { ExternalLink } from "lucide-react";
 import type { Reading } from "@/data/reading.ts";
 
-const readings: ColumnDef<Reading>[] = [
+const readingsColumns: ColumnDef<Reading>[] = [
   {
     accessorKey: "id",
     header: "#",
@@ -50,4 +50,4 @@ const readings: ColumnDef<Reading>[] = [
   },
 ];
 
-export default readings;
+export default readingsColumns;
