@@ -124,4 +124,12 @@ export const HARDWARE: Hardware[] = [
         "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse",
     },
   },
+  {
+    component: "Microphone",
+    name: "HyperX SoloCast",
+    url: {
+      name: "HyperX",
+      address: "https://row.hyperx.com/products/hyperx-solocast-usb-microphone",
+    },
+  },
 ];
