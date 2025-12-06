@@ -1,5 +1,5 @@
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import hardwareColumns from "@/pages/myGear/hardwareColumns.tsx";
+import hardwareColumns from "@/pages/my-gear/hardwareColumns.tsx";
 import { DataTable } from "@/components/data-table.tsx";
 import { HARDWARE } from "@/data/hardware.ts";
 import { SOFTWARE } from "@/data/software.ts";
