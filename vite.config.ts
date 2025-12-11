@@ -1,12 +1,15 @@
+/// <reference types="vitest/config" />
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { copyFileSync } from "fs";
+import type { Plugin } from "vite";
 
 // Plugin to copy index.html to 404.html for GitHub Pages SPA routing
-const copy404Plugin = () => ({
+const copy404Plugin = (): Plugin => ({
   name: "copy-404",
+  apply: "build",
   closeBundle() {
     const distPath = path.resolve(__dirname, "dist");
     const indexHtml = path.join(distPath, "index.html");
@@ -27,5 +30,11 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/tests/setup.ts",
+    css: true,
   },
 });
