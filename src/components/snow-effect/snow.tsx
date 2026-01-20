@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { useTheme } from "@/components/theme-provider.tsx";
 import "./snow.css";
 
@@ -21,6 +21,7 @@ export function Snow() {
       animationDelay: Math.random() * 10 + "s",
       opacity: Math.random() * 0.5 + 0.5,
       size: Math.random() * 3 + 2 + "px",
+      drift: (Math.random() - 0.5) * 60 + "px",
     }))
   );
 
@@ -34,14 +35,17 @@ export function Snow() {
         <div
           key={flake.id}
           className="snowflake"
-          style={{
-            left: `${flake.left}%`,
-            animationDuration: flake.animationDuration,
-            animationDelay: flake.animationDelay,
-            opacity: flake.opacity,
-            width: flake.size,
-            height: flake.size,
-          }}
+          style={
+            {
+              left: `${flake.left}%`,
+              animationDuration: flake.animationDuration,
+              animationDelay: flake.animationDelay,
+              opacity: flake.opacity,
+              width: flake.size,
+              height: flake.size,
+              "--drift": flake.drift,
+            } as CSSProperties
+          }
         />
       ))}
     </div>

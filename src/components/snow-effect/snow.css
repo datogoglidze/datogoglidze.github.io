@@ -10,6 +10,7 @@
 }
 
 .snowflake {
+  --drift: 0px;
   position: absolute;
   top: -10px;
   background: rgba(255, 255, 255, 0.8);
@@ -23,9 +24,10 @@
     transform: translateY(0) translateX(0) rotate(0deg);
   }
   50% {
-    transform: translateY(50vh) translateX(15px) rotate(180deg);
+    transform: translateY(50vh) translateX(calc(var(--drift) / 2))
+      rotate(180deg);
   }
   100% {
-    transform: translateY(100vh) translateX(30px) rotate(360deg);
+    transform: translateY(100vh) translateX(var(--drift)) rotate(360deg);
   }
 }
