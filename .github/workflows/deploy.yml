@@ -36,6 +36,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          VITE_SENTRY_ENVIRONMENT: ${{ secrets.SENTRY_ENVIRONMENT }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
