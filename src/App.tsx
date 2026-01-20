@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Snow } from "@/components/snow-effect/snow.tsx";
 import RootLayout from "@/pages/RootLayout.tsx";
 import HomePage from "@/pages/home/page";
 import LearningPage from "@/pages/learning/page";
@@ -62,6 +63,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Snow />
       <RouterProvider router={router} />
     </ThemeProvider>
   );
