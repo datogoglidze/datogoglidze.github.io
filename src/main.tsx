@@ -7,6 +7,7 @@ import App from "./App.tsx";
 Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN,
   environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
+  release: import.meta.env.VITE_SENTRY_RELEASE,
   integrations: [Sentry.browserTracingIntegration()],
   // Setting this option to true will send default PII data to Sentry.
   // For example, automatic IP address collection on events
