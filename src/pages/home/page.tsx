@@ -7,13 +7,6 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-      <button
-        onClick={() => {
-          throw new Error("This is your first error on Github!");
-        }}
-      >
-        Break the world
-      </button>
       <div className="flex flex-col items-center justify-center bg-muted/50 min-h-[calc(75vh-4rem-0.5rem)] rounded-xl p-6 pt-4">
         <img
           className="h-64 w-64 rounded-full"
