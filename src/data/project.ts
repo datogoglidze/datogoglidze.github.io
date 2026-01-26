@@ -101,4 +101,17 @@ export const PROJECTS: Project[] = [
       address: "https://github.com/datogoglidze/bloknot.git",
     },
   },
+  {
+    id: 8,
+    name: "City Simulator",
+    description: "Simulation of basic city",
+    image: {
+      name: "Hexagonal shaped city center",
+      source: "/main-page/city-simulator.jpg",
+    },
+    url: {
+      name: "Coming Soon...",
+      address: "https://github.com/datogoglidze/city-simulator-service.git",
+    },
+  },
 ];
