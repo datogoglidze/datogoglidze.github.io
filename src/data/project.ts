@@ -103,15 +103,16 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 8,
-    name: "City Simulator",
-    description: "Simulation of basic city",
+    name: "City Simulation",
+    description:
+      "Real-time city simulation with role-based agents moving on a hex grid",
     image: {
       name: "Hexagonal shaped city center",
       source: "/main-page/city-simulator.jpg",
     },
     url: {
-      name: "Coming Soon...",
-      address: "https://github.com/datogoglidze/city-simulator-service.git",
+      name: "GitHub",
+      address: "https://github.com/datogoglidze/city-simulation-service.git",
     },
   },
 ];
