@@ -22,7 +22,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@sentry/react": "^10.35.0",
     "@tabler/icons-react": "^3.35.0",
-    "@tailwindcss/vite": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-table": "^8.21.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
