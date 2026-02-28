@@ -41,6 +41,9 @@ jobs:
           VITE_SENTRY_ENVIRONMENT: ${{ secrets.SENTRY_ENVIRONMENT }}
           VITE_SENTRY_RELEASE: ${{ github.sha }}
 
+      - name: Prerender routes
+        run: node scripts/prerender.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

@@ -2,30 +2,36 @@ import { DataTable } from "@/components/data-table.tsx";
 import { COURSES } from "@/data/course.ts";
 import { PRACTICES } from "@/data/practice.ts";
 import { READINGS } from "@/data/reading.ts";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { SEOHead } from "@/components/seo-head";
 import coursesColumns from "@/pages/learning/dataTableColumns/courses.tsx";
 import readingsColumns from "@/pages/learning/dataTableColumns/readings.tsx";
 import practicesColumns from "@/pages/learning/dataTableColumns/practices.tsx";
 
 export default function LearningPage() {
-  useDocumentTitle("Learning | Schwifter");
-
   return (
-    <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-      <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
-        <h1 className="text-2xl font-bold mb-4">Courses</h1>
-        <DataTable columns={coursesColumns} data={COURSES} />
-      </div>
+    <>
+      <SEOHead
+        title="Learning"
+        description="Courses, books, and practice resources for software engineering and beyond."
+        path="/learning"
+      />
 
-      <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
-        <h1 className="text-2xl font-bold mb-4">Reading</h1>
-        <DataTable columns={readingsColumns} data={READINGS} />
-      </div>
+      <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
+          <h1 className="text-2xl font-bold mb-4">Courses</h1>
+          <DataTable columns={coursesColumns} data={COURSES} />
+        </div>
 
-      <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
-        <h1 className="text-2xl font-bold mb-4">Practice</h1>
-        <DataTable columns={practicesColumns} data={PRACTICES} />
+        <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
+          <h1 className="text-2xl font-bold mb-4">Reading</h1>
+          <DataTable columns={readingsColumns} data={READINGS} />
+        </div>
+
+        <div className="bg-muted/50 rounded-xl md:min-h-min p-6 pt-4">
+          <h1 className="text-2xl font-bold mb-4">Practice</h1>
+          <DataTable columns={practicesColumns} data={PRACTICES} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
