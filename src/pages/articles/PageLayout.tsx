@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRSSFeed } from "./useRSSFeed.ts";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle.ts";
+import { SEOHead } from "@/components/seo-head";
 import {
   Select,
   SelectContent,
@@ -55,76 +55,97 @@ export default function PageLayout({ subject }: SubjectArticlesPageProps) {
     setRefreshTrigger((prev) => prev + 1);
   };
 
-  useDocumentTitle("Articles | Schwifter");
+  const seoBySubject = {
+    gaming: {
+      title: "Gaming Articles",
+      description: "Latest gaming news and articles from top RSS sources.",
+    },
+    tech: {
+      title: "Tech Articles",
+      description: "Latest technology news and articles from top RSS sources.",
+    },
+    finance: {
+      title: "Finance Articles",
+      description: "Latest finance news and articles from top RSS sources.",
+    },
+  };
 
   return (
-    <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-      <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] md:min-h-min rounded-xl p-6 pt-4">
-        <div className="flex gap-3 items-center mb-4">
-          <h1 className="text-md font-bold">Provider</h1>
-          <Select
-            value={String(selectedProvider.id)}
-            onValueChange={handleProviderChange}
-          >
-            <SelectTrigger className="max-w-[140px] sm:max-w-[200px]">
-              <SelectValue placeholder="Select provider" />
-            </SelectTrigger>
+    <>
+      <SEOHead
+        title={seoBySubject[subject].title}
+        description={seoBySubject[subject].description}
+        path={`/${subject}`}
+      />
 
-            <SelectContent>
-              <SelectGroup>
-                {RSS_PROVIDERS.filter(
-                  (provider) => provider.subject === subject
-                ).map((provider) => (
-                  <SelectItem key={provider.id} value={String(provider.id)}>
-                    {provider.name}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+      <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="flex-1 bg-muted/50 min-h-[calc(100vh-4rem-0.5rem)] md:min-h-min rounded-xl p-6 pt-4">
+          <div className="flex gap-3 items-center mb-4">
+            <h1 className="text-md font-bold">Provider</h1>
+            <Select
+              value={String(selectedProvider.id)}
+              onValueChange={handleProviderChange}
+            >
+              <SelectTrigger className="max-w-[140px] sm:max-w-[200px]">
+                <SelectValue placeholder="Select provider" />
+              </SelectTrigger>
 
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={handleRefresh}
-            disabled={loading}
-            title="Refresh provider"
-            className="bg-transparent"
-          >
-            <RefreshCw
-              className={`h-[1.2rem] w-[1.2rem] scale-100 ${loading ? "animate-spin" : ""}`}
-            />
-          </Button>
-        </div>
-
-        {loading && <LoadingSkeleton count={3} />}
-
-        {error && <ErrorMessage message={error} />}
-
-        {!loading && !error && feed && (
-          <div>
-            {feed.items.length === 0 ? (
-              <p className="text-muted-foreground">No articles found.</p>
-            ) : (
-              <div>
-                <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  {feed.items.map((article, index) => (
-                    <ArticleCard
-                      key={article.guid || article.link || index}
-                      article={article}
-                    />
+              <SelectContent>
+                <SelectGroup>
+                  {RSS_PROVIDERS.filter(
+                    (provider) => provider.subject === subject
+                  ).map((provider) => (
+                    <SelectItem key={provider.id} value={String(provider.id)}>
+                      {provider.name}
+                    </SelectItem>
                   ))}
-                </div>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
 
-                <div className="flex mt-4 flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
-                  <h1>That's all for now...</h1>
-                  <h1>Come back tomorrow</h1>
-                </div>
-              </div>
-            )}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleRefresh}
+              disabled={loading}
+              title="Refresh provider"
+              className="bg-transparent"
+            >
+              <RefreshCw
+                className={`h-[1.2rem] w-[1.2rem] scale-100 ${loading ? "animate-spin" : ""}`}
+              />
+            </Button>
           </div>
-        )}
+
+          {loading && <LoadingSkeleton count={3} />}
+
+          {error && <ErrorMessage message={error} />}
+
+          {!loading && !error && feed && (
+            <div>
+              {feed.items.length === 0 ? (
+                <p className="text-muted-foreground">No articles found.</p>
+              ) : (
+                <div>
+                  <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {feed.items.map((article, index) => (
+                      <ArticleCard
+                        key={article.guid || article.link || index}
+                        article={article}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="flex mt-4 flex-col gap-2 items-center bg-muted/50 rounded-xl p-6">
+                    <h1>That's all for now...</h1>
+                    <h1>Come back tomorrow</h1>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

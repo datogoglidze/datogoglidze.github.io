@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://datogoglidze.github.io/sitemap.xml
