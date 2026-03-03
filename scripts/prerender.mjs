@@ -42,12 +42,12 @@ function startServer(port) {
         res.end(fallback);
       }
     });
-    server.listen(port, () => resolve(server));
+    server.listen(port, "127.0.0.1", () => resolve(server));
   });
 }
 
 async function prerender() {
-  const PORT = 4173;
+  const PORT = 4936;
   const server = await startServer(PORT);
   console.log(`Static server running on http://localhost:${PORT}`);
 
