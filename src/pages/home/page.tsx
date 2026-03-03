@@ -17,6 +17,9 @@ export default function HomePage() {
             className="h-64 w-64 rounded-full"
             src="/alien-300-300.jpg"
             alt="Alien Avatar"
+            width={300}
+            height={300}
+            fetchPriority="high"
           />
           <p className="font-medium mt-4">I'm Schwifter</p>
           <p className="font-medium mt-4">Software Engineer</p>
