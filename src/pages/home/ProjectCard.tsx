@@ -24,6 +24,8 @@ export function ProjectCard({ project }: { project: Project }) {
           src={project.image.source}
           className="rounded-md"
           alt={project.image.name}
+          width={720}
+          height={405}
         />
       </CardContent>
       <CardFooter>
