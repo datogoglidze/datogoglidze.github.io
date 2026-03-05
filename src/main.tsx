@@ -8,7 +8,14 @@ Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN,
   environment: import.meta.env.VITE_SENTRY_ENVIRONMENT,
   release: import.meta.env.VITE_SENTRY_RELEASE,
-  integrations: [Sentry.browserTracingIntegration()],
+  // feedbackIntegration enables a bug reporting widget
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.feedbackIntegration({
+      colorScheme: "system",
+      showEmail: false,
+    }),
+  ],
   // Setting this option to true will send default PII data to Sentry.
   // For example, automatic IP address collection on events
   sendDefaultPii: true,
