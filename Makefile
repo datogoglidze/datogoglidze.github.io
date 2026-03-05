@@ -19,7 +19,7 @@ seo-check: build-full
 	@echo "Checking SEO artifacts in dist/..."
 	@test -f dist/sitemap.xml || (echo "FAIL: dist/sitemap.xml missing" && exit 1)
 	@test -f dist/robots.txt || (echo "FAIL: dist/robots.txt missing" && exit 1)
-	@test -f dist/home.html || (echo "FAIL: dist/home.html missing (prerender failed)" && exit 1)
+	@test -f dist/learning.html || (echo "FAIL: dist/learning.html missing (prerender failed)" && exit 1)
 	@echo "All SEO checks passed."
 
 install:

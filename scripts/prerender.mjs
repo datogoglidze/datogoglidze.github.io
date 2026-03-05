@@ -8,7 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, "..", "dist");
 
 const ROUTES = [
-  "/home",
+  "/",
   "/learning",
   "/gaming",
   "/tech",
@@ -61,11 +61,12 @@ async function prerender() {
     await page.goto(url, { waitUntil: "networkidle0", timeout: 30000 });
     const html = await page.content();
 
-    const outFile = join(DIST, `${route}.html`);
+    const outFile =
+      route === "/" ? join(DIST, "index.html") : join(DIST, `${route}.html`);
     writeFileSync(outFile, html);
 
     await page.close();
-    console.log(`  -> ${route}.html`);
+    console.log(`  -> ${route === "/" ? "index.html" : `${route}.html`}`);
   }
 
   await browser.close();
