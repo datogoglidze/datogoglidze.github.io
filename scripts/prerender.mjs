@@ -1,6 +1,6 @@
 import { launch } from "puppeteer";
 import { createServer } from "http";
-import { readFileSync, writeFileSync, mkdirSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -61,12 +61,11 @@ async function prerender() {
     await page.goto(url, { waitUntil: "networkidle0", timeout: 30000 });
     const html = await page.content();
 
-    const outDir = join(DIST, route);
-    mkdirSync(outDir, { recursive: true });
-    writeFileSync(join(outDir, "index.html"), html);
+    const outFile = join(DIST, `${route}.html`);
+    writeFileSync(outFile, html);
 
     await page.close();
-    console.log(`  -> ${route}/index.html`);
+    console.log(`  -> ${route}.html`);
   }
 
   await browser.close();
