@@ -10,7 +10,7 @@ interface SEOHeadProps {
 
 export function SEOHead({ title, description, path = "/" }: SEOHeadProps) {
   const fullTitle = `${title} | ${SITE_NAME}`;
-  const normalizedPath = path.endsWith("/") ? path : `${path}/`;
+  const normalizedPath = path.endsWith("/") ? path.slice(0, -1) : path;
   const canonicalUrl = `${BASE_URL}${normalizedPath}`;
 
   return (

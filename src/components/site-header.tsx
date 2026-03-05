@@ -4,7 +4,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ModeToggle } from "@/components/mode-toggle.tsx";
 
 const routeTitles: Record<string, string> = {
-  "/home": "Home",
+  "/": "Home",
   "/learning": "Learning",
   "/articles": "Articles",
   "/memes": "Memes",

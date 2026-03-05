@@ -33,7 +33,7 @@ import { sendEventToGoogle } from "@/lib/utils.ts";
 const items = [
   {
     title: "Home",
-    url: "/home",
+    url: "/",
     icon: Home,
   },
   {
