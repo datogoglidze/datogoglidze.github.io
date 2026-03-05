@@ -1,5 +1,5 @@
 const BASE_URL = "https://datogoglidze.github.io";
-const SITE_NAME = "Schwifter";
+const SITE_NAME = "David Goglidze | Schwifter";
 const OG_IMAGE = `${BASE_URL}/og-image.png`;
 
 interface SEOHeadProps {
