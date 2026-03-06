@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const BASE_URL = "https://datogoglidze.github.io";
 const SITE_NAME = "Schwifter";
 const AUTHOR_NAME = "David Goglidze";
@@ -9,27 +11,55 @@ interface SEOHeadProps {
   path?: string;
 }
 
+const SEO_ATTR = "data-seo";
+
+function setMeta(attr: string, value: string, content: string) {
+  const selector = `meta[${attr}="${value}"]`;
+  let el = document.head.querySelector<HTMLMetaElement>(selector);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, value);
+    el.setAttribute(SEO_ATTR, "");
+    document.head.appendChild(el);
+  }
+  el.content = content;
+}
+
+function setCanonical(href: string) {
+  let el = document.head.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]'
+  );
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = "canonical";
+    el.setAttribute(SEO_ATTR, "");
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
 export function SEOHead({ title, description, path = "/" }: SEOHeadProps) {
   const fullTitle = `${title} | ${SITE_NAME}`;
   const normalizedPath =
     path.endsWith("/") && path.length > 1 ? path.slice(0, -1) : path;
   const canonicalUrl = `${BASE_URL}${normalizedPath}`;
 
-  return (
-    <>
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="author" content={AUTHOR_NAME} />
-      <link rel="canonical" href={canonicalUrl} />
+  useEffect(() => {
+    document.title = fullTitle;
 
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={AUTHOR_NAME} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={OG_IMAGE} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-    </>
-  );
+    setMeta("name", "description", description);
+    setMeta("name", "author", AUTHOR_NAME);
+    setCanonical(canonicalUrl);
+
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:site_name", AUTHOR_NAME);
+    setMeta("property", "og:title", fullTitle);
+    setMeta("property", "og:description", description);
+    setMeta("property", "og:url", canonicalUrl);
+    setMeta("property", "og:image", OG_IMAGE);
+    setMeta("property", "og:image:width", "1200");
+    setMeta("property", "og:image:height", "630");
+  }, [fullTitle, description, canonicalUrl]);
+
+  return null;
 }

@@ -6,8 +6,8 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="Home"
-        description="Schwifter's portfolio — software engineering projects, tools, and experiments."
+        title="David Goglidze"
+        description="Schwifter's personal site — software engineering projects, learning resources, articles, music, and more."
         path="/"
       />
 
