@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6";
 import * as React from "react";
 import type { Url } from "@/types/common.ts";
 
@@ -17,7 +18,7 @@ export const CONTACTS: Contact[] = [
       name: "X",
       address: "https://x.com/schwifterpickle",
     },
-    icon: Twitter,
+    icon: FaXTwitter,
   },
   {
     id: 2,
@@ -26,7 +27,7 @@ export const CONTACTS: Contact[] = [
       name: "LinkedIn",
       address: "https://www.linkedin.com/in/d-goglidze/",
     },
-    icon: Linkedin,
+    icon: FaLinkedin,
   },
   {
     id: 3,
@@ -35,7 +36,7 @@ export const CONTACTS: Contact[] = [
       name: "GitHub",
       address: "https://github.com/datogoglidze",
     },
-    icon: Github,
+    icon: FaGithub,
   },
   {
     id: 4,
