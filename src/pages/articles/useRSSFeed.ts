@@ -8,14 +8,11 @@ export function useRSSFeed(
   refreshTrigger = 0
 ): UseRSSFeedResult {
   const [feed, setFeed] = useState<RSSFeed | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !feedUrl);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!feedUrl) {
-      setLoading(false);
-      setFeed(null);
-      setError(null);
       return;
     }
 
