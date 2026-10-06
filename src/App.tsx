@@ -1,7 +1,10 @@
+import React from "react";
+import * as Sentry from "@sentry/react";
 import {
   RouterProvider,
   Navigate,
   createBrowserRouter,
+  useRouteError,
 } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Snow } from "@/components/snow-effect/snow.tsx";
@@ -15,10 +18,28 @@ import FinanceArticlesPage from "@/pages/articles/subjects/finance.tsx";
 import MusicPage from "@/pages/music/page.tsx";
 import MyGear from "@/pages/my-gear/page.tsx";
 
-const router = createBrowserRouter([
+function RootErrorBoundary() {
+  const error = useRouteError() as Error;
+
+  React.useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
+
+  return (
+    <div>
+      <h1>Ouch! Something went wrong.</h1>
+    </div>
+  );
+}
+
+const sentryCreateBrowserRouter =
+  Sentry.wrapCreateBrowserRouterV7(createBrowserRouter);
+
+const router = sentryCreateBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <RootErrorBoundary />,
     children: [
       {
         index: true,
