@@ -40,6 +40,7 @@ jobs:
           VITE_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           VITE_SENTRY_ENVIRONMENT: ${{ secrets.SENTRY_ENVIRONMENT }}
           VITE_SENTRY_RELEASE: ${{ github.sha }}
+          VITE_CORSPROXY_API_KEY: ${{ secrets.CORSPROXY_API_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
