@@ -1,12 +1,12 @@
 import type { RSSFeed, RSSFeedItem } from "@/types/rss";
-import { fetchViaCorsProxy } from "@/lib/proxies/corsproxy";
+import { fetchViaCloudflare } from "@/lib/proxies/cloudflare";
 import { fetchViaWhateverOrigin } from "@/lib/proxies/whateverorigin";
 
 const CONTENT_SNIPPET_LENGTH = 300;
 
 type ProxyFetcher = (url: string, signal: AbortSignal) => Promise<string>;
 
-const PROXIES: ProxyFetcher[] = [fetchViaCorsProxy, fetchViaWhateverOrigin];
+const PROXIES: ProxyFetcher[] = [fetchViaCloudflare, fetchViaWhateverOrigin];
 
 function getTextContent(element: Element | null, tagName: string): string {
   const el = element?.querySelector(tagName);
