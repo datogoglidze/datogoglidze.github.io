@@ -100,10 +100,11 @@ export const HARDWARE: Hardware[] = [
   },
   {
     component: "Monitor",
-    name: 'Acer Nitro 24" FHD 165 Hz',
+    name: "Alienware 27” QHD 180Hz",
     url: {
-      name: "Display Specifications",
-      address: "https://www.displayspecifications.com/en/model/ba6e20e7",
+      name: "Dell",
+      address:
+        "https://www.dell.com/en-us/shop/monitors/apd/alienware-27-gaming-monitor-aw2725dm/aw2725dm/-",
     },
   },
   {
@@ -117,11 +118,10 @@ export const HARDWARE: Hardware[] = [
   },
   {
     component: "Mouse",
-    name: "Logitech G305 LIGHTSPEED",
+    name: "Razer Orochi V2",
     url: {
-      name: "Logitech",
-      address:
-        "https://www.logitechg.com/en-us/shop/p/g305-lightspeed-wireless-gaming-mouse",
+      name: "Razer",
+      address: "https://www.razer.com/gaming-mice/razer-orochi-v2",
     },
   },
   {
@@ -130,6 +130,15 @@ export const HARDWARE: Hardware[] = [
     url: {
       name: "HyperX",
       address: "https://row.hyperx.com/products/hyperx-solocast-usb-microphone",
+    },
+  },
+  {
+    component: "Headset",
+    name: "HyperX Cloud III",
+    url: {
+      name: "HyperX",
+      address:
+        "https://row.hyperx.com/products/hyperx-cloud-iii-wired-gaming-headset",
     },
   },
 ];
