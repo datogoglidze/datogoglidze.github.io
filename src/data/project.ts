@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
     id: 1,
     name: "GitHub Workflow Dispatcher",
     description:
-      "Distributed dispatching and scheduling platform running ~30 workflows an average of 10,000 times monthly across 30 servers to replace GitHub Actions native cron schedules; built with FastAPI, APScheduler, SQLite, React 19, and Docker, featuring token bucket rate limiting with jitter, a management dashboard, and a FastMCP server for AI agent workflow automation.",
+      "Distributed dispatching and scheduling platform running ~30 workflows an average of 10,000 times monthly across 30 servers to replace unreliable GitHub Actions native cron schedules; built with FastAPI, APScheduler, SQLite, React 19, and Docker, featuring token bucket rate limiting with jitter, a management dashboard, and a FastMCP server for AI agent workflow automation.",
     image: {
       name: "GitHub Workflow Dispatcher",
       source: "/main-page/workflow-scheduler.jpg",
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     id: 8,
     name: "Notifications",
     description:
-      "Production FastAPI service used by 3 companies, processing an average of 42,000 SMS and email messages per day through extensible provider adapters.",
+      "FastAPI service used by 3 companies, processing an average of 42,000 messages per day. Replaced direct MSSQL Agent HTTP jobs with an extensible provider-adapter architecture supporting MSG and Silknet for SMS and SMTP for email.",
     image: {
       name: "Notifications",
       source: "/main-page/notifications.jpg",
@@ -111,7 +111,8 @@ export const PROJECTS: Project[] = [
   {
     id: 9,
     name: "Campaigns",
-    description: "Manages active marketing campaigns for POS devices.",
+    description:
+      "Retail checkout engine built with Python (FastAPI) for POS devices. Evaluates active marketing campaigns, calculates real-time basket pricing across complex discount rules, manages loyalty cards with reward points, and generates purchase receipts with itemized totals and promotional gifts.",
     image: {
       name: "Campaigns",
       source: "/main-page/campaigns.jpg",
@@ -133,7 +134,7 @@ export const PROJECTS: Project[] = [
     id: 11,
     name: "Ecosystem",
     description:
-      "Automates configuration across 30 Linux servers and 1 Windows server and deployment of 40 services, supporting approximately 200 test and production deployments per month.",
+      "Automated infrastructure using Ansible, Docker, HashiCorp Vault, and self-hosted GitHub Actions runners across 30 Linux servers and 1 Windows server. Manages 40 containerized services and ~200 monthly deployments, reducing server setup from days to 10 minutes and service deploys to 5 minutes.",
     image: {
       name: "Ecosystem",
       source: "/main-page/ecosystem.jpg",
@@ -144,7 +145,7 @@ export const PROJECTS: Project[] = [
     id: 12,
     name: "Warehouse Management System",
     description:
-      "Pilot tested across 2 warehouses with 5 users, replacing paper-based test workflows with Android task tracking and immediate manager visibility.",
+      "Full-stack platform built with Python (FastAPI), React, DevExtreme, and MSSQL, pilot-tested across 2 warehouses with 5 operators. Replaced paper-based workflows with mobile task tracking on Android phones, role-based state machines, order tracking, and real-time manager visibility.",
     image: {
       name: "Warehouse Management System",
       source: "/main-page/warehouse-management-system.jpg",

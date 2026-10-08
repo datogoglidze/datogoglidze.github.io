@@ -13,17 +13,24 @@ export const SOFTWARE: Software[] = [
   {
     id: 2,
     category: "IDE",
-    names: ["PyCharm", "WebStorm", "Cursor", "Google Antigravity"],
+    names: [
+      "PyCharm",
+      "WebStorm",
+      "DataGrip",
+      "Rider",
+      "Cursor",
+      "Google Antigravity",
+    ],
   },
   {
     id: 3,
     category: "Browser",
-    names: ["Google Chrome", "Mozilla Firefox"],
+    names: ["Mozilla Firefox"],
   },
   {
     id: 4,
     category: "Office",
-    names: ["MS Office", "Google Docs", "Notion"],
+    names: ["MS Office", "Google Docs"],
   },
   {
     id: 5,
@@ -54,6 +61,6 @@ export const SOFTWARE: Software[] = [
   {
     id: 8,
     category: "Media",
-    names: ["Plex", "Kodi", "Spotify"],
+    names: ["Plex", "Spotify"],
   },
 ];
