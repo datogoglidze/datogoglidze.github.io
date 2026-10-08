@@ -75,4 +75,14 @@ export const COURSES: Course[] = [
     languages: ["Python"],
     hasCertificate: false,
   },
+  {
+    id: 6,
+    name: "University of Helsinki",
+    url: {
+      name: "MOOC",
+      address: "https://www.mooc.fi/en/courses/?tag=en",
+    },
+    languages: [],
+    hasCertificate: true,
+  },
 ];
