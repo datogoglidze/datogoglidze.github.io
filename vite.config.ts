@@ -7,7 +7,7 @@ import { copyFileSync } from "fs";
 const copy404Plugin = () => ({
   name: "copy-404",
   closeBundle() {
-    const distPath = path.resolve(__dirname, "dist");
+    const distPath = path.resolve(import.meta.dirname, "dist");
     try {
       copyFileSync(
         path.join(distPath, "index.html"),
@@ -25,7 +25,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), copy404Plugin()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
 });
